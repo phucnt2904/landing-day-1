@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nomie – Mỹ Phẩm Sỉ & Lẻ Toàn Quốc</title>
+  <title>Nomie – Order Taobao | Thời Trang Giá Tốt</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -45,30 +45,17 @@
 
     /* ── HEADER ──────────────────────────────────────────── */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: rgba(255,255,255,.96);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid #f0e0e4;
       height: 68px;
     }
     .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 48px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 0 48px;
+      height: 100%; display: flex; align-items: center; justify-content: space-between;
     }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--rose);
-      text-decoration: none;
-    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--rose); text-decoration: none; }
     .logo sup { font-size: .5em; color: var(--gold); font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 1px; }
     nav { display: flex; gap: 32px; }
     nav a { font-size: .88rem; font-weight: 500; color: var(--text); text-decoration: none; transition: color .2s; }
@@ -86,79 +73,45 @@
     /* ── HERO ────────────────────────────────────────────── */
     .hero {
       background: linear-gradient(130deg, #fdf1f3 0%, #fce4ea 45%, #f9d0da 100%);
-      overflow: hidden;
-      position: relative;
+      overflow: hidden; position: relative;
     }
     .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: 40%;
+      content: ''; position: absolute; bottom: -80px; left: 40%;
       width: 400px; height: 400px;
       background: radial-gradient(circle, rgba(200,168,130,.1) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+      border-radius: 50%; pointer-events: none;
     }
     .hero-wrap {
-      display: flex;
-      align-items: center;
-      gap: 64px;
-      min-height: 520px;
-      padding: 64px 0;
-      position: relative;
-      z-index: 2;
+      display: flex; align-items: center; gap: 64px;
+      min-height: 520px; padding: 64px 0;
+      position: relative; z-index: 2;
     }
     .hero-content { flex: 1; max-width: 500px; }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(201,112,122,.1);
-      color: var(--rose);
-      font-size: .78rem; font-weight: 700;
-      letter-spacing: 1.2px; text-transform: uppercase;
-      padding: 6px 16px; border-radius: 50px;
-      margin-bottom: 20px;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(201,112,122,.1); color: var(--rose);
+      font-size: .78rem; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 20px;
       border: 1px solid rgba(201,112,122,.22);
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 4vw, 3.8rem);
-      font-weight: 900; line-height: 1.15;
-      color: var(--text); margin-bottom: 18px;
+      font-weight: 900; line-height: 1.15; color: var(--text); margin-bottom: 18px;
     }
     .hero h1 em { font-style: italic; color: var(--rose); }
-    .hero p {
-      font-size: 1rem; color: var(--muted);
-      line-height: 1.75; margin-bottom: 32px; max-width: 420px;
-    }
+    .hero p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 32px; max-width: 420px; }
     .hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
     .trust-strip { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
     .trust-item { display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--muted); }
     .trust-item .dot { width: 7px; height: 7px; background: var(--rose-light); border-radius: 50%; flex-shrink: 0; }
 
-    /* hero visual */
-    .hero-visual {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 420px;
-    }
+    .hero-visual { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 420px; }
     .collage-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      gap: 12px;
-      width: 100%;
-      max-width: 460px;
-      height: 460px;
+      display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+      gap: 12px; width: 100%; max-width: 460px; height: 460px;
     }
-    .ci {
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 28px rgba(180,80,100,.16);
-      background: #f5e0e4;
-    }
+    .ci { border-radius: 18px; overflow: hidden; box-shadow: 0 8px 28px rgba(180,80,100,.16); background: #f5e0e4; }
     .ci img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
     .ci:hover img { transform: scale(1.05); }
     .ci-main { grid-row: 1 / 3; }
@@ -167,10 +120,8 @@
 
     /* ── BUTTONS ─────────────────────────────────────────── */
     .btn-primary {
-      display: inline-block;
-      background: var(--rose); color: #fff;
-      font-size: .9rem; font-weight: 700;
-      padding: 14px 30px; border-radius: 50px;
+      display: inline-block; background: var(--rose); color: #fff;
+      font-size: .9rem; font-weight: 700; padding: 14px 30px; border-radius: 50px;
       text-decoration: none; letter-spacing: .3px;
       transition: background .2s, transform .2s, box-shadow .2s;
       box-shadow: 0 6px 20px rgba(201,112,122,.35);
@@ -189,11 +140,10 @@
     .btn-ghost:hover .arrow { transform: translateX(4px); }
 
     .btn-outline {
-      display: inline-block; background: transparent;
-      color: var(--rose); border: 2px solid var(--rose);
-      font-size: .88rem; font-weight: 700;
-      padding: 12px 26px; border-radius: 50px;
-      text-decoration: none; transition: background .2s, color .2s;
+      display: inline-block; background: transparent; color: var(--rose);
+      border: 2px solid var(--rose); font-size: .88rem; font-weight: 700;
+      padding: 12px 26px; border-radius: 50px; text-decoration: none;
+      transition: background .2s, color .2s;
     }
     .btn-outline:hover { background: var(--rose); color: #fff; }
 
@@ -201,8 +151,7 @@
     .stats-bar { background: var(--rose); padding: 28px 0; }
     .stats-inner {
       max-width: 1200px; margin: 0 auto; padding: 0 48px;
-      display: flex; justify-content: space-around;
-      flex-wrap: wrap; gap: 24px;
+      display: flex; justify-content: space-around; flex-wrap: wrap; gap: 24px;
     }
     .stat { text-align: center; color: #fff; }
     .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; display: block; }
@@ -214,60 +163,36 @@
     .section-wrap.bg-white { background: var(--white); }
 
     .sec-head { text-align: center; margin-bottom: 52px; }
-    .sec-label {
-      display: inline-block; font-size: .75rem; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); margin-bottom: 10px;
-    }
-    .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700;
-      line-height: 1.2; color: var(--text); margin-bottom: 12px;
-    }
+    .sec-label { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); margin-bottom: 10px; }
+    .sec-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--text); margin-bottom: 12px; }
     .sec-desc { font-size: .97rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
 
     /* ── PROBLEM ─────────────────────────────────────────── */
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
+    .pain-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .pain-card {
-      background: var(--white); border-radius: 18px;
-      padding: 30px 22px; border: 1.5px solid #f0dde2;
-      transition: transform .25s, box-shadow .25s;
+      background: var(--white); border-radius: 18px; padding: 30px 22px;
+      border: 1.5px solid #f0dde2; transition: transform .25s, box-shadow .25s;
     }
     .pain-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(201,112,122,.13); }
-    .pain-icon {
-      width: 52px; height: 52px; background: var(--blush); border-radius: 14px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px;
-    }
+    .pain-icon { width: 52px; height: 52px; background: var(--blush); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
     .pain-card h3 { font-size: .97rem; font-weight: 700; color: #b05a63; margin-bottom: 10px; }
     .pain-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; }
 
     /* ── SOLUTION ────────────────────────────────────────── */
-    .solution-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
+    .solution-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .sol-card {
-      background: var(--cream); border-radius: 18px;
-      padding: 30px 22px; border: 1.5px solid #f0dde2;
-      transition: transform .25s, box-shadow .25s;
+      background: var(--cream); border-radius: 18px; padding: 30px 22px;
+      border: 1.5px solid #f0dde2; transition: transform .25s, box-shadow .25s;
     }
     .sol-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(201,112,122,.12); }
-    .sol-icon {
-      width: 52px; height: 52px; background: var(--rose); border-radius: 14px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px;
-    }
+    .sol-icon { width: 52px; height: 52px; background: var(--rose); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
     .sol-card h3 { font-size: .97rem; font-weight: 700; color: var(--rose); margin-bottom: 10px; }
     .sol-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; }
 
     /* ── SALE BANNER ─────────────────────────────────────── */
     .sale-banner {
       background: linear-gradient(120deg, #fce4ea 0%, #fdf1f3 55%, #fce8ee 100%);
-      padding: 72px 0;
-      position: relative; overflow: hidden;
+      padding: 72px 0; position: relative; overflow: hidden;
     }
     .sale-banner::before {
       content: ''; position: absolute; right: -60px; top: -60px;
@@ -275,22 +200,10 @@
       background: radial-gradient(circle, rgba(201,112,122,.13) 0%, transparent 70%);
       border-radius: 50%; pointer-events: none;
     }
-    .sale-inner {
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 56px;
-      position: relative; z-index: 2;
-    }
+    .sale-inner { display: flex; align-items: center; justify-content: space-between; gap: 56px; position: relative; z-index: 2; }
     .sale-left { flex: 1; max-width: 480px; }
-    .sale-tag {
-      display: inline-block; background: var(--rose); color: #fff;
-      font-size: .77rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 6px 18px; border-radius: 4px; margin-bottom: 16px;
-    }
-    .sale-left h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.2;
-      margin-bottom: 12px; color: var(--text);
-    }
+    .sale-tag { display: inline-block; background: var(--rose); color: #fff; font-size: .77rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 18px; border-radius: 4px; margin-bottom: 16px; }
+    .sale-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.2; margin-bottom: 12px; color: var(--text); }
     .sale-left h2 span { color: var(--rose); }
     .sale-left p { font-size: .97rem; color: var(--muted); margin-bottom: 28px; line-height: 1.7; }
     .sale-btns { display: flex; gap: 14px; flex-wrap: wrap; }
@@ -307,134 +220,66 @@
     .sale-prod-lbl { font-size: .72rem; color: var(--muted); }
 
     /* ── BENEFITS ────────────────────────────────────────── */
-    .benefit-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+    .benefit-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .benefit-item {
-      background: var(--white); border-radius: 16px;
-      padding: 24px 22px; display: flex; gap: 16px; align-items: flex-start;
+      background: var(--white); border-radius: 16px; padding: 24px 22px;
+      display: flex; gap: 16px; align-items: flex-start;
       border: 1.5px solid #f0dde2; transition: box-shadow .25s;
     }
     .benefit-item:hover { box-shadow: 0 8px 32px rgba(201,112,122,.11); }
-    .check-circle {
-      width: 34px; height: 34px; min-width: 34px;
-      background: var(--rose); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: .9rem; font-weight: 700; margin-top: 2px;
-    }
+    .check-circle { width: 34px; height: 34px; min-width: 34px; background: var(--rose); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: .9rem; font-weight: 700; margin-top: 2px; }
     .benefit-item h4 { font-size: .97rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
     .benefit-item p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
 
     /* ── REVIEWS ─────────────────────────────────────────── */
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+    .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .review-card {
-      background: var(--cream); border-radius: 18px;
-      padding: 28px 24px; border: 1.5px solid #f0dde2;
-      transition: transform .25s, box-shadow .25s;
+      background: var(--cream); border-radius: 18px; padding: 28px 24px;
+      border: 1.5px solid #f0dde2; transition: transform .25s, box-shadow .25s;
     }
     .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(201,112,122,.13); }
     .review-stars { color: #e8a050; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
-    .review-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--rose-light), var(--rose));
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
-    }
+    .review-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--rose-light), var(--rose)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
     .review-card p { font-size: .9rem; color: #555; font-style: italic; line-height: 1.7; margin-bottom: 16px; }
     .reviewer { display: flex; align-items: center; gap: 10px; }
     .reviewer-info .name { font-weight: 700; font-size: .88rem; }
     .reviewer-info .role { font-size: .78rem; color: var(--muted); margin-top: 2px; }
 
     /* ── CTA ─────────────────────────────────────────────── */
-    .cta {
-      background: linear-gradient(135deg, #c9707a 0%, #b05a63 50%, #9a4a52 100%);
-      color: #fff; padding: 84px 0;
-      text-align: center; position: relative; overflow: hidden;
-    }
-    .cta::before {
-      content: ''; position: absolute; top: -100px; left: -100px;
-      width: 400px; height: 400px; background: rgba(255,255,255,.05); border-radius: 50%;
-    }
-    .cta::after {
-      content: ''; position: absolute; bottom: -80px; right: -80px;
-      width: 350px; height: 350px; background: rgba(255,255,255,.04); border-radius: 50%;
-    }
+    .cta { background: linear-gradient(135deg, #c9707a 0%, #b05a63 50%, #9a4a52 100%); color: #fff; padding: 84px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta::before { content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: rgba(255,255,255,.05); border-radius: 50%; }
+    .cta::after  { content: ''; position: absolute; bottom: -80px; right: -80px; width: 350px; height: 350px; background: rgba(255,255,255,.04); border-radius: 50%; }
     .cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 24px; }
-    .cta-badge {
-      display: inline-block; background: rgba(255,255,255,.18); color: #fff;
-      font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 7px 20px; border-radius: 50px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,.28);
-    }
-    .cta h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px;
-    }
+    .cta-badge { display: inline-block; background: rgba(255,255,255,.18); color: #fff; font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 7px 20px; border-radius: 50px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,.28); }
+    .cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
     .cta p { font-size: 1.05rem; opacity: .88; margin-bottom: 38px; line-height: 1.75; }
     .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 24px; }
-    .btn-cta-white {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #fff; color: var(--rose); font-size: .97rem; font-weight: 700;
-      padding: 15px 34px; border-radius: 50px; text-decoration: none;
-      box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: transform .2s, box-shadow .2s;
-      border: none; cursor: pointer;
-    }
+    .btn-cta-white { display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--rose); font-size: .97rem; font-weight: 700; padding: 15px 34px; border-radius: 50px; text-decoration: none; box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: transform .2s, box-shadow .2s; border: none; cursor: pointer; }
     .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,.28); }
-    .btn-cta-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: #fff; font-size: .97rem; font-weight: 700;
-      padding: 15px 34px; border-radius: 50px; text-decoration: none;
-      border: 2px solid rgba(255,255,255,.6); transition: background .2s, border-color .2s;
-    }
+    .btn-cta-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: #fff; font-size: .97rem; font-weight: 700; padding: 15px 34px; border-radius: 50px; text-decoration: none; border: 2px solid rgba(255,255,255,.6); transition: background .2s, border-color .2s; }
     .btn-cta-outline:hover { background: rgba(255,255,255,.12); border-color: #fff; }
     .cta-note { font-size: .85rem; opacity: .7; }
 
     /* ── FOOTER ──────────────────────────────────────────── */
     footer { background: #2a1a1e; color: #b09098; padding: 36px 0; }
-    .footer-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 48px;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
-    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--rose-light); }
     .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .footer-links a { font-size: .82rem; color: #907880; text-decoration: none; transition: color .2s; }
     .footer-links a:hover { color: var(--rose-light); }
     .footer-socials { display: flex; gap: 12px; }
-    .social-btn {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; font-size: .85rem; color: #b09098; transition: background .2s, color .2s;
-    }
+    .social-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: .85rem; color: #b09098; transition: background .2s, color .2s; }
     .social-btn:hover { background: var(--rose); color: #fff; }
     .social-btn.fb:hover { background: #1877f2; }
     .social-btn.ig:hover { background: radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
     .social-btn.zl:hover { background: #0068ff; }
 
     /* ── QR MODAL ────────────────────────────────────────── */
-    .qr-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(30,10,15,.55); backdrop-filter: blur(4px);
-      z-index: 999; align-items: center; justify-content: center;
-    }
+    .qr-overlay { display: none; position: fixed; inset: 0; background: rgba(30,10,15,.55); backdrop-filter: blur(4px); z-index: 999; align-items: center; justify-content: center; }
     .qr-overlay.active { display: flex; }
-    .qr-box {
-      background: #fff; border-radius: 24px; padding: 36px 32px 28px;
-      text-align: center; max-width: 300px; width: 90%; position: relative;
-      box-shadow: 0 24px 60px rgba(0,0,0,.22); animation: popIn .25s ease;
-    }
+    .qr-box { background: #fff; border-radius: 24px; padding: 36px 32px 28px; text-align: center; max-width: 300px; width: 90%; position: relative; box-shadow: 0 24px 60px rgba(0,0,0,.22); animation: popIn .25s ease; }
     @keyframes popIn { from { transform: scale(.88); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    .qr-close {
-      position: absolute; top: 14px; right: 16px;
-      background: #f5e8ea; border: none; border-radius: 50%;
-      width: 30px; height: 30px; font-size: 1rem; cursor: pointer;
-      color: var(--rose); display: flex; align-items: center; justify-content: center; transition: background .2s;
-    }
+    .qr-close { position: absolute; top: 14px; right: 16px; background: #f5e8ea; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 1rem; cursor: pointer; color: var(--rose); display: flex; align-items: center; justify-content: center; transition: background .2s; }
     .qr-close:hover { background: #f8d4db; }
     .qr-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--rose); margin-bottom: 4px; }
     .qr-sub { font-size: .78rem; color: var(--muted); margin-bottom: 18px; }
@@ -448,7 +293,6 @@
       .pain-grid, .solution-grid { grid-template-columns: repeat(2, 1fr); }
       .review-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
     @media (max-width: 768px) {
       .container, .header-inner, .stats-inner, .footer-inner { padding: 0 20px; }
       nav { display: none; }
@@ -463,7 +307,6 @@
       .sale-visual { justify-content: center; }
       .footer-inner { flex-direction: column; text-align: center; }
     }
-
     @media (max-width: 480px) {
       .sale-visual { display: none; }
       .stats-inner { gap: 16px; }
@@ -474,8 +317,8 @@
 
   <!-- TOPBAR -->
   <div class="topbar">
-    ✨ Ưu đãi tháng này: Giảm 10% cho 50 khách đầu tiên &nbsp;–&nbsp;
-    <a href="#lien-he">Nhận ngay →</a>
+    🎁 Freeship đơn từ 500k – Nhận ưu đãi ngay &nbsp;–&nbsp;
+    <a href="#lien-he">Đặt đơn →</a>
   </div>
 
   <!-- HEADER -->
@@ -484,13 +327,13 @@
       <a href="#" class="logo">NOMIE<sup>✦</sup></a>
       <nav>
         <a href="#van-de">Vấn đề</a>
-        <a href="#giai-phap">Giải pháp</a>
+        <a href="#giai-phap">Dịch vụ</a>
         <a href="#loi-ich">Lợi ích</a>
         <a href="#khach-hang">Khách hàng</a>
       </nav>
       <div class="header-actions">
         <a href="tel:0792204611">Gọi ngay</a>
-        <a href="#lien-he" class="btn-nav">Tư vấn miễn phí</a>
+        <a href="#lien-he" class="btn-nav">Đặt order ngay</a>
       </div>
     </div>
   </header>
@@ -500,32 +343,32 @@
     <div class="container">
       <div class="hero-wrap">
         <div class="hero-content">
-          <div class="hero-badge">✦ Mỹ phẩm chính hãng · Sỉ &amp; Lẻ</div>
-          <h1>Làn Da Đẹp<br>Không Còn<br>Là <em>Giấc Mơ</em></h1>
-          <p>Nguồn mỹ phẩm uy tín – rõ nguồn gốc, giá tốt nhất.
-             Dành cho chị em dùng lẻ và các đại lý muốn nhập sỉ lợi nhuận cao.</p>
+          <div class="hero-badge">✦ Order Taobao · Sỉ &amp; Lẻ · Toàn Quốc</div>
+          <h1>Hàng Taobao<br>Về Tận Tay<br><em>Giá Cực Hời</em></h1>
+          <p>Không biết tiếng Trung? Không cần! Chỉ cần gửi link – chúng tôi lo hết từ đặt hàng,
+             kiểm tra đến giao tận nhà với giá tốt nhất.</p>
           <div class="hero-cta">
-            <a href="#lien-he" class="btn-primary">🛍️ Đặt hàng ngay</a>
+            <a href="#lien-he" class="btn-primary">🛍️ Đặt order ngay</a>
             <a href="#giai-phap" class="btn-ghost">
-              Xem chi tiết <span class="arrow">→</span>
+              Xem dịch vụ <span class="arrow">→</span>
             </a>
           </div>
           <div class="trust-strip">
-            <div class="trust-item"><span class="dot"></span>2.000+ khách tin dùng</div>
-            <div class="trust-item"><span class="dot"></span>Giao toàn quốc</div>
-            <div class="trust-item"><span class="dot"></span>Hoàn tiền nếu không ưng</div>
+            <div class="trust-item"><span class="dot"></span>3.000+ đơn thành công</div>
+            <div class="trust-item"><span class="dot"></span>Kiểm hàng trước khi gửi</div>
+            <div class="trust-item"><span class="dot"></span>Báo giá minh bạch</div>
           </div>
         </div>
         <div class="hero-visual">
           <div class="collage-grid">
             <div class="ci ci-main">
-              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop&q=85&auto=format" alt="Bộ dưỡng da" />
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=500&fit=crop&q=85&auto=format" alt="Mua sắm thời trang" />
             </div>
             <div class="ci ci-top">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=220&fit=crop&q=85&auto=format" alt="Serum dưỡng da" />
+              <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=300&h=220&fit=crop&q=85&auto=format" alt="Thời trang nữ" />
             </div>
             <div class="ci ci-bot">
-              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=220&fit=crop&q=85&auto=format" alt="Kem dưỡng ẩm" />
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300&h=220&fit=crop&q=85&auto=format" alt="Quần áo Taobao" />
             </div>
           </div>
         </div>
@@ -536,9 +379,9 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat"><span class="stat-num">2.000+</span><span class="stat-lbl">Khách hàng tin dùng</span></div>
-      <div class="stat"><span class="stat-num">98%</span><span class="stat-lbl">Hài lòng sau khi mua</span></div>
-      <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Đại lý sỉ toàn quốc</span></div>
+      <div class="stat"><span class="stat-num">3.000+</span><span class="stat-lbl">Đơn hàng thành công</span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-lbl">Khách hàng hài lòng</span></div>
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Shop Taobao uy tín</span></div>
       <div class="stat"><span class="stat-num">4.9 ★</span><span class="stat-lbl">Đánh giá trung bình</span></div>
     </div>
   </div>
@@ -548,29 +391,29 @@
     <div class="container">
       <div class="sec-head">
         <span class="sec-label">Vấn đề bạn đang gặp?</span>
-        <h2 class="sec-title">Mua Mỹ Phẩm Ngày Nay<br>Đang Khiến Bạn Đau Đầu?</h2>
-        <p class="sec-desc">Hàng giả, giá chặt chém, không rõ xuất xứ – bạn không phải người duy nhất gặp phải điều này.</p>
+        <h2 class="sec-title">Tự Order Taobao<br>Đang Khiến Bạn Đau Đầu?</h2>
+        <p class="sec-desc">Rào cản ngôn ngữ, hàng không như hình, phí ẩn tràn lan – bạn không phải người duy nhất gặp phải điều này.</p>
       </div>
       <div class="pain-grid">
         <div class="pain-card">
-          <div class="pain-icon">😰</div>
-          <h3>Sợ mua phải hàng giả, hàng nhái</h3>
-          <p>Thị trường tràn lan mỹ phẩm không rõ nguồn gốc, dùng vào gây kích ứng, nổi mụn, ảnh hưởng sức khoẻ.</p>
+          <div class="pain-icon">🈚</div>
+          <h3>Không biết tiếng Trung</h3>
+          <p>Giao diện Taobao toàn chữ Trung, không biết cách đặt hàng, chọn size, hay liên hệ shop khi có vấn đề.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">😱</div>
+          <h3>Hàng về khác xa hình</h3>
+          <p>Ảnh đẹp lung linh nhưng hàng thật chất lượng kém, màu sắc sai, size lệch – mất tiền oan không biết khiếu nại ai.</p>
         </div>
         <div class="pain-card">
           <div class="pain-icon">💸</div>
-          <h3>Giá sỉ không thực sự rẻ</h3>
-          <p>Nhiều nơi gọi là "giá sỉ" nhưng vẫn đắt hơn thị trường, khiến người bán lẻ không có lợi nhuận.</p>
-        </div>
-        <div class="pain-card">
-          <div class="pain-icon">😤</div>
-          <h3>Tư vấn qua loa, mua về không hợp</h3>
-          <p>Không ai hỗ trợ phân tích da, mua về không phù hợp, lãng phí tiền bạc mà da vẫn không cải thiện.</p>
+          <h3>Phí ẩn, tính sau mới biết</h3>
+          <p>Nhiều dịch vụ báo giá thấp ban đầu nhưng cộng đủ thứ phí sau khiến đơn hàng đội giá gấp đôi.</p>
         </div>
         <div class="pain-card">
           <div class="pain-icon">📦</div>
-          <h3>Giao hàng chậm, đóng gói cẩu thả</h3>
-          <p>Đặt hàng online rồi chờ mãi, nhận về thì vỡ bể, móp méo – mất cả tiền lẫn thời gian.</p>
+          <h3>Hàng thất lạc, vỡ hỏng</h3>
+          <p>Đặt hàng xong chờ mãi không thấy, hoặc nhận về thì móp méo, vỡ bể – không ai chịu trách nhiệm.</p>
         </div>
       </div>
     </div>
@@ -580,30 +423,30 @@
   <section class="section-wrap bg-white" id="giai-phap">
     <div class="container">
       <div class="sec-head">
-        <span class="sec-label">Giải pháp của chúng tôi</span>
-        <h2 class="sec-title">Chúng Tôi Giải Quyết<br>Tất Cả Những Điều Đó</h2>
-        <p class="sec-desc">Một đầu mối – mỹ phẩm thật, giá tốt, tư vấn tận tâm và giao hàng nhanh chóng.</p>
+        <span class="sec-label">Dịch vụ của chúng tôi</span>
+        <h2 class="sec-title">Chỉ Cần Gửi Link –<br>Chúng Tôi Lo Hết</h2>
+        <p class="sec-desc">Từ đặt hàng, thanh toán, kiểm tra đến vận chuyển – một đầu mối duy nhất, minh bạch từng bước.</p>
       </div>
       <div class="solution-grid">
         <div class="sol-card">
-          <div class="sol-icon">🏷️</div>
-          <h3>Hàng chính hãng 100%</h3>
-          <p>Tất cả sản phẩm đều có tem nhãn, chứng từ, nguồn gốc rõ ràng. Cam kết hoàn tiền nếu phát hiện hàng giả.</p>
+          <div class="sol-icon">🔗</div>
+          <h3>Đặt hàng thay toàn bộ</h3>
+          <p>Gửi link sản phẩm Taobao bất kỳ – chúng tôi đặt hàng, trả tiền và theo dõi đơn thay bạn.</p>
         </div>
         <div class="sol-card">
-          <div class="sol-icon">💰</div>
-          <h3>Giá sỉ cực tốt, chiết khấu cao</h3>
-          <p>Càng nhập nhiều chiết khấu càng cao. Phù hợp cả người mua lẻ lẫn đại lý, cửa hàng.</p>
+          <div class="sol-icon">🔍</div>
+          <h3>Kiểm hàng kỹ tại kho TQ</h3>
+          <p>Hàng về kho Trung Quốc được kiểm tra chất lượng, chụp ảnh thực tế gửi cho bạn xác nhận trước khi ship.</p>
         </div>
         <div class="sol-card">
-          <div class="sol-icon">💬</div>
-          <h3>Tư vấn da miễn phí</h3>
-          <p>Chuyên gia phân tích loại da, gợi ý sản phẩm phù hợp – không cần trả thêm một đồng nào.</p>
+          <div class="sol-icon">📋</div>
+          <h3>Báo giá minh bạch từ đầu</h3>
+          <p>Giá sản phẩm + phí ship + phí dịch vụ được tính rõ ràng ngay từ đầu. Không phát sinh, không bất ngờ.</p>
         </div>
         <div class="sol-card">
           <div class="sol-icon">🚀</div>
-          <h3>Giao hàng nhanh, đóng gói cẩn thận</h3>
-          <p>Ship toàn quốc trong 1–3 ngày. Đóng gói kỹ lưỡng, hàng đến tay nguyên vẹn 100%.</p>
+          <h3>Giao về Việt Nam nhanh</h3>
+          <p>Hàng được đóng gói cẩn thận, ship về Việt Nam trong 7–15 ngày. Có mã theo dõi đơn hàng realtime.</p>
         </div>
       </div>
     </div>
@@ -614,10 +457,10 @@
     <div class="container">
       <div class="sale-inner">
         <div class="sale-left">
-          <div class="sale-tag">Ưu đãi đặc biệt</div>
-          <h2>Nhập Sỉ<br><span>Tiết Kiệm Đến 40%</span></h2>
-          <p>Đăng ký đại lý ngay hôm nay, nhận bảng giá sỉ độc quyền và chính sách hỗ trợ kinh doanh toàn diện.
-             Hàng trăm chị em đã bắt đầu kiếm thêm 5–15 triệu/tháng từ đây.</p>
+          <div class="sale-tag">Dành cho chủ shop</div>
+          <h2>Order Sỉ<br><span>Chiết Khấu Đến 30%</span></h2>
+          <p>Bạn đang kinh doanh quần áo và muốn nhập hàng Taobao giá tốt? Chúng tôi có gói sỉ riêng
+             với chiết khấu hấp dẫn, hỗ trợ tìm nguồn hàng và tư vấn xu hướng thời trang mới nhất.</p>
           <div class="sale-btns">
             <a href="#lien-he" class="btn-primary">Nhận báo giá sỉ ngay</a>
             <a href="#lien-he" class="btn-outline">Tư vấn miễn phí</a>
@@ -626,27 +469,27 @@
         <div class="sale-visual">
           <div class="sale-prod-wrap">
             <div class="sale-prod-img sp-tall">
-              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&h=320&fit=crop&q=85&auto=format" alt="Serum" width="100" height="160" />
+              <img src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=200&h=320&fit=crop&q=85&auto=format" alt="Áo" width="100" height="160" />
             </div>
-            <span class="sale-prod-lbl">Serum</span>
+            <span class="sale-prod-lbl">Áo</span>
           </div>
           <div class="sale-prod-wrap">
             <div class="sale-prod-img sp-taller">
-              <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=220&h=400&fit=crop&q=85&auto=format" alt="Toner" width="110" height="200" />
+              <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=220&h=400&fit=crop&q=85&auto=format" alt="Váy" width="110" height="200" />
             </div>
-            <span class="sale-prod-lbl">Toner</span>
+            <span class="sale-prod-lbl">Váy</span>
           </div>
           <div class="sale-prod-wrap">
             <div class="sale-prod-img sp-wide">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=220&h=220&fit=crop&q=85&auto=format" alt="Kem dưỡng" width="110" height="110" />
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=220&h=220&fit=crop&q=85&auto=format" alt="Phụ kiện" width="110" height="110" />
             </div>
-            <span class="sale-prod-lbl">Kem dưỡng</span>
+            <span class="sale-prod-lbl">Phụ kiện</span>
           </div>
           <div class="sale-prod-wrap">
             <div class="sale-prod-img sp-short">
-              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=180&h=280&fit=crop&q=85&auto=format" alt="Essence" width="90" height="140" />
+              <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=180&h=280&fit=crop&q=85&auto=format" alt="Quần" width="90" height="140" />
             </div>
-            <span class="sale-prod-lbl">Essence</span>
+            <span class="sale-prod-lbl">Quần</span>
           </div>
         </div>
       </div>
@@ -657,44 +500,44 @@
   <section class="section-wrap bg-cream" id="loi-ich">
     <div class="container">
       <div class="sec-head">
-        <span class="sec-label">Tại sao chọn chúng tôi?</span>
+        <span class="sec-label">Tại sao chọn Nomie?</span>
         <h2 class="sec-title">Lợi Ích Bạn Nhận Được</h2>
-        <p class="sec-desc">Mỗi đơn hàng đều mang lại giá trị thực sự – không chỉ là mỹ phẩm.</p>
+        <p class="sec-desc">Mỗi đơn hàng đều được chăm sóc tận tâm – từ lúc đặt đến khi hàng tới tay bạn.</p>
       </div>
       <div class="benefit-list">
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Tiết kiệm 20–40% so với mua lẻ thông thường</h4>
-            <p>Lấy thẳng từ nhà phân phối, không qua trung gian – giá tốt nhất chuyển ngay đến bạn.</p>
+            <h4>Tiết kiệm 30–50% so với mua hàng trong nước</h4>
+            <p>Hàng Taobao chính gốc giá gốc Trung Quốc – rẻ hơn hàng nhập lậu trôi nổi mà chất lượng đảm bảo hơn nhiều.</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Da cải thiện rõ rệt sau 2–4 tuần sử dụng</h4>
-            <p>Sản phẩm chọn lọc kỹ càng, đã kiểm nghiệm – da trắng sáng, giảm mụn, mờ thâm nhanh.</p>
+            <h4>Hơn 1 tỷ sản phẩm – đủ mọi phong cách</h4>
+            <p>Từ thời trang công sở, dạo phố đến đồ couple, đồ thể thao – tìm được hết trên Taobao với giá tốt nhất.</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Kiếm thêm 5–15 triệu/tháng khi bán lại</h4>
-            <p>Nhiều chị em đã bắt đầu kinh doanh mỹ phẩm từ nguồn sỉ và đang có thu nhập ổn định.</p>
+            <h4>Nhận hàng trong 7–15 ngày</h4>
+            <p>Quy trình vận chuyển tối ưu, có tracking realtime từ kho Trung Quốc về đến tay bạn tại Việt Nam.</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Hỗ trợ sau bán hàng trọn đời</h4>
-            <p>Dùng không hợp? Phản ứng? Cần đổi? Chúng tôi luôn ở đây – nhắn tin bất cứ lúc nào.</p>
+            <h4>Tư vấn size & chất liệu miễn phí</h4>
+            <p>Không biết chọn size Trung – Việt? Chúng tôi tư vấn dựa trên số đo của bạn, hạn chế tối đa sai size.</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Đổi trả linh hoạt trong 7 ngày</h4>
-            <p>Không thích, không hợp – đổi trả dễ dàng, không hỏi khó, không mất phí. Mua hàng an tâm.</p>
+            <h4>Hoàn tiền nếu hàng lỗi do shop</h4>
+            <p>Hàng lỗi, sai mẫu, kém chất lượng – chúng tôi khiếu nại shop Taobao và hoàn tiền cho bạn. An tâm tuyệt đối.</p>
           </div>
         </div>
       </div>
@@ -706,12 +549,12 @@
     <div class="container">
       <div class="sec-head">
         <span class="sec-label">Khách hàng nói gì?</span>
-        <h2 class="sec-title">Hơn 2.000 Khách Hàng<br>Đã Tin Tưởng Chúng Tôi</h2>
+        <h2 class="sec-title">Hơn 3.000 Đơn Hàng<br>Được Giao Thành Công</h2>
       </div>
       <div class="review-grid">
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Mình đã mua thử 1 bộ skincare, da cải thiện rõ rệt chỉ sau 3 tuần. Quan trọng là hàng thật, giá lại mềm hơn ngoài tiệm rất nhiều!"</p>
+          <p>"Mình order váy Taobao lần đầu, tưởng sẽ gặp nhiều rắc rối nhưng Nomie lo hết. Hàng về đúng như hình, size vừa vặn, giao trong 10 ngày. Quá ổn!"</p>
           <div class="reviewer">
             <div class="review-avatar">L</div>
             <div class="reviewer-info">
@@ -722,18 +565,18 @@
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Mình nhập sỉ 3 tháng nay, mỗi tháng lời khoảng 8–10 triệu. Nguồn hàng ổn định, tư vấn nhiệt tình, giao hàng nhanh. Rất uy tín!"</p>
+          <p>"Mình nhập sỉ 3 tháng nay, mỗi đợt 50–100 món. Báo giá rõ ràng, hàng được kiểm tra kỹ trước khi ship. Chưa có đơn nào bị lỗi hay thất lạc."</p>
           <div class="reviewer">
             <div class="review-avatar">C</div>
             <div class="reviewer-info">
               <div class="name">Chị Trần Minh Châu</div>
-              <div class="role">Đại lý sỉ – Đà Nẵng</div>
+              <div class="role">Chủ shop thời trang – Đà Nẵng</div>
             </div>
           </div>
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Lần đầu mua mỹ phẩm online mà không lo hàng giả. Được tư vấn loại da miễn phí, dùng đúng sản phẩm, da mình lên tone hẳn sau 1 tháng."</p>
+          <p>"Trước hay order qua các trang trôi nổi hay bị sai size hoặc màu. Từ khi dùng Nomie được tư vấn size kỹ, 5 đơn gần nhất đều chuẩn hết. Tin tưởng lắm!"</p>
           <div class="reviewer">
             <div class="review-avatar">H</div>
             <div class="reviewer-info">
@@ -749,14 +592,14 @@
   <!-- CTA -->
   <section class="cta" id="lien-he">
     <div class="cta-inner">
-      <div class="cta-badge">✦ Sẵn sàng bắt đầu?</div>
-      <h2>Đặt Hàng Ngay Hôm Nay<br>Nhận Ưu Đãi Độc Quyền</h2>
-      <p>Nhắn tin ngay – được tư vấn miễn phí, nhận báo giá sỉ tốt nhất và ưu đãi dành riêng cho khách mới.</p>
+      <div class="cta-badge">✦ Sẵn sàng đặt order?</div>
+      <h2>Gửi Link – Nhận Báo Giá<br>Trong Vòng 15 Phút</h2>
+      <p>Nhắn link sản phẩm Taobao qua Zalo – chúng tôi báo giá tổng (hàng + ship + dịch vụ) ngay lập tức, không chờ đợi.</p>
       <div class="cta-buttons">
-        <button onclick="document.getElementById('qrModal').classList.add('active')" class="btn-cta-white">💬 Nhắn Zalo Tư Vấn Ngay</button>
+        <button onclick="document.getElementById('qrModal').classList.add('active')" class="btn-cta-white">💬 Gửi Link Taobao Qua Zalo</button>
         <a href="tel:0792204611" class="btn-cta-outline">📞 Gọi: 079.220.4611</a>
       </div>
-      <p class="cta-note">⏰ Ưu đãi giới hạn – Giảm thêm 10% cho 50 khách đầu tiên trong tháng này</p>
+      <p class="cta-note">⚡ Phản hồi trong 15 phút – Freeship đơn đầu tiên cho khách mới</p>
     </div>
   </section>
 
@@ -768,7 +611,7 @@
       <div class="qr-sub">Quét mã để nhắn Zalo ngay</div>
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://zalo.me/0792204611&color=c9707a&bgcolor=ffffff" alt="QR Zalo Nomie" />
       <div class="qr-phone">0792 204 611</div>
-      <div class="qr-hint">Mở Zalo → Quét mã → Nhắn tin tư vấn miễn phí</div>
+      <div class="qr-hint">Mở Zalo → Quét mã → Gửi link Taobao</div>
     </div>
   </div>
 
@@ -778,7 +621,7 @@
       <div class="footer-logo">NOMIE✦</div>
       <div class="footer-links">
         <a href="#">Chính sách đổi trả</a>
-        <a href="#">Hướng dẫn mua sỉ</a>
+        <a href="#">Hướng dẫn đặt order</a>
         <a href="#">Liên hệ</a>
         <a href="#">Địa chỉ: 174 đường số 20</a>
       </div>
