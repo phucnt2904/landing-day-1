@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nomie – Mỹ Phẩm Sỉ & Lẻ Toàn Quốc</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --rose:       #c9707a;
+      --rose-dark:  #b05a63;
+      --rose-light: #f0a8b0;
+      --blush:      #fde8ec;
+      --cream:      #fdf6f8;
+      --gold:       #c8a882;
+      --text:       #3a2a2e;
+      --muted:      #9a7e84;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); }
+
+    /* ── CONTAINER ───────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      width: 100%;
+    }
+
+    /* ── TOPBAR ──────────────────────────────────────────── */
+    .topbar {
+      background: var(--rose);
+      color: #fff;
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      padding: 8px 16px;
+    }
+    .topbar a { color: #fff; text-decoration: underline; margin-left: 6px; }
+
+    /* ── HEADER ──────────────────────────────────────────── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #f0e0e4;
+      height: 68px;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 48px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--rose);
+      text-decoration: none;
+    }
+    .logo sup { font-size: .5em; color: var(--gold); font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 1px; }
+    nav { display: flex; gap: 32px; }
+    nav a { font-size: .88rem; font-weight: 500; color: var(--text); text-decoration: none; transition: color .2s; }
+    nav a:hover { color: var(--rose); }
+    .header-actions { display: flex; align-items: center; gap: 14px; }
+    .header-actions a { font-size: .82rem; color: var(--muted); text-decoration: none; font-weight: 500; }
+    .btn-nav {
+      background: var(--rose); color: #fff !important;
+      padding: 9px 22px; border-radius: 50px;
+      font-size: .83rem !important; font-weight: 600 !important;
+      transition: background .2s, transform .2s;
+    }
+    .btn-nav:hover { background: var(--rose-dark) !important; transform: translateY(-1px); }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(130deg, #fdf1f3 0%, #fce4ea 45%, #f9d0da 100%);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 40%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(200,168,130,.1) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-wrap {
+      display: flex;
+      align-items: center;
+      gap: 64px;
+      min-height: 520px;
+      padding: 64px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-content { flex: 1; max-width: 500px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,112,122,.1);
+      color: var(--rose);
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(201,112,122,.22);
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      font-weight: 900; line-height: 1.15;
+      color: var(--text); margin-bottom: 18px;
+    }
+    .hero h1 em { font-style: italic; color: var(--rose); }
+    .hero p {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75; margin-bottom: 32px; max-width: 420px;
+    }
+    .hero-cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+    .trust-strip { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 7px; font-size: .82rem; color: var(--muted); }
+    .trust-item .dot { width: 7px; height: 7px; background: var(--rose-light); border-radius: 50%; flex-shrink: 0; }
+
+    /* hero visual */
+    .hero-visual {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+    }
+    .collage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+      max-width: 460px;
+      height: 460px;
+    }
+    .ci {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(180,80,100,.16);
+      background: #f5e0e4;
+    }
+    .ci img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+    .ci:hover img { transform: scale(1.05); }
+    .ci-main { grid-row: 1 / 3; }
+    .ci-top  { grid-column: 2; grid-row: 1; }
+    .ci-bot  { grid-column: 2; grid-row: 2; }
+
+    /* ── BUTTONS ─────────────────────────────────────────── */
+    .btn-primary {
+      display: inline-block;
+      background: var(--rose); color: #fff;
+      font-size: .9rem; font-weight: 700;
+      padding: 14px 30px; border-radius: 50px;
+      text-decoration: none; letter-spacing: .3px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 20px rgba(201,112,122,.35);
+    }
+    .btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(201,112,122,.45); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .88rem; font-weight: 600; color: var(--rose); text-decoration: none;
+    }
+    .btn-ghost .arrow {
+      width: 32px; height: 32px; background: #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem; box-shadow: 0 2px 10px rgba(0,0,0,.1); transition: transform .2s;
+    }
+    .btn-ghost:hover .arrow { transform: translateX(4px); }
+
+    .btn-outline {
+      display: inline-block; background: transparent;
+      color: var(--rose); border: 2px solid var(--rose);
+      font-size: .88rem; font-weight: 700;
+      padding: 12px 26px; border-radius: 50px;
+      text-decoration: none; transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--rose); color: #fff; }
+
+    /* ── STATS BAR ───────────────────────────────────────── */
+    .stats-bar { background: var(--rose); padding: 28px 0; }
+    .stats-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 48px;
+      display: flex; justify-content: space-around;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .stat { text-align: center; color: #fff; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; display: block; }
+    .stat-lbl { font-size: .8rem; opacity: .85; margin-top: 5px; }
+
+    /* ── SECTION COMMON ──────────────────────────────────── */
+    .section-wrap { padding: 80px 0; }
+    .section-wrap.bg-cream { background: var(--cream); }
+    .section-wrap.bg-white { background: var(--white); }
+
+    .sec-head { text-align: center; margin-bottom: 52px; }
+    .sec-label {
+      display: inline-block; font-size: .75rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--rose); margin-bottom: 10px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700;
+      line-height: 1.2; color: var(--text); margin-bottom: 12px;
+    }
+    .sec-desc { font-size: .97rem; color: var(--muted); max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── PROBLEM ─────────────────────────────────────────── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .pain-card {
+      background: var(--white); border-radius: 18px;
+      padding: 30px 22px; border: 1.5px solid #f0dde2;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .pain-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(201,112,122,.13); }
+    .pain-icon {
+      width: 52px; height: 52px; background: var(--blush); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px;
+    }
+    .pain-card h3 { font-size: .97rem; font-weight: 700; color: #b05a63; margin-bottom: 10px; }
+    .pain-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── SOLUTION ────────────────────────────────────────── */
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .sol-card {
+      background: var(--cream); border-radius: 18px;
+      padding: 30px 22px; border: 1.5px solid #f0dde2;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .sol-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(201,112,122,.12); }
+    .sol-icon {
+      width: 52px; height: 52px; background: var(--rose); border-radius: 14px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px;
+    }
+    .sol-card h3 { font-size: .97rem; font-weight: 700; color: var(--rose); margin-bottom: 10px; }
+    .sol-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── SALE BANNER ─────────────────────────────────────── */
+    .sale-banner {
+      background: linear-gradient(120deg, #fce4ea 0%, #fdf1f3 55%, #fce8ee 100%);
+      padding: 72px 0;
+      position: relative; overflow: hidden;
+    }
+    .sale-banner::before {
+      content: ''; position: absolute; right: -60px; top: -60px;
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(201,112,122,.13) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .sale-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 56px;
+      position: relative; z-index: 2;
+    }
+    .sale-left { flex: 1; max-width: 480px; }
+    .sale-tag {
+      display: inline-block; background: var(--rose); color: #fff;
+      font-size: .77rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 6px 18px; border-radius: 4px; margin-bottom: 16px;
+    }
+    .sale-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.2;
+      margin-bottom: 12px; color: var(--text);
+    }
+    .sale-left h2 span { color: var(--rose); }
+    .sale-left p { font-size: .97rem; color: var(--muted); margin-bottom: 28px; line-height: 1.7; }
+    .sale-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .sale-visual { display: flex; gap: 14px; align-items: flex-end; flex-shrink: 0; }
+    .sale-prod-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .sale-prod-img { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 28px rgba(180,80,100,.18); background: #f5e0e4; }
+    .sale-prod-img img { display: block; object-fit: cover; transition: transform .4s; }
+    .sale-prod-img:hover img { transform: scale(1.06); }
+    .sp-tall   { width: 100px; height: 160px; }
+    .sp-taller { width: 110px; height: 200px; }
+    .sp-short  { width: 90px;  height: 140px; }
+    .sp-wide   { width: 110px; height: 110px; }
+    .sale-prod-lbl { font-size: .72rem; color: var(--muted); }
+
+    /* ── BENEFITS ────────────────────────────────────────── */
+    .benefit-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .benefit-item {
+      background: var(--white); border-radius: 16px;
+      padding: 24px 22px; display: flex; gap: 16px; align-items: flex-start;
+      border: 1.5px solid #f0dde2; transition: box-shadow .25s;
+    }
+    .benefit-item:hover { box-shadow: 0 8px 32px rgba(201,112,122,.11); }
+    .check-circle {
+      width: 34px; height: 34px; min-width: 34px;
+      background: var(--rose); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: .9rem; font-weight: 700; margin-top: 2px;
+    }
+    .benefit-item h4 { font-size: .97rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .benefit-item p { font-size: .86rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── REVIEWS ─────────────────────────────────────────── */
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .review-card {
+      background: var(--cream); border-radius: 18px;
+      padding: 28px 24px; border: 1.5px solid #f0dde2;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 32px rgba(201,112,122,.13); }
+    .review-stars { color: #e8a050; font-size: 1rem; margin-bottom: 12px; letter-spacing: 2px; }
+    .review-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-light), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+    }
+    .review-card p { font-size: .9rem; color: #555; font-style: italic; line-height: 1.7; margin-bottom: 16px; }
+    .reviewer { display: flex; align-items: center; gap: 10px; }
+    .reviewer-info .name { font-weight: 700; font-size: .88rem; }
+    .reviewer-info .role { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── CTA ─────────────────────────────────────────────── */
+    .cta {
+      background: linear-gradient(135deg, #c9707a 0%, #b05a63 50%, #9a4a52 100%);
+      color: #fff; padding: 84px 0;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: ''; position: absolute; top: -100px; left: -100px;
+      width: 400px; height: 400px; background: rgba(255,255,255,.05); border-radius: 50%;
+    }
+    .cta::after {
+      content: ''; position: absolute; bottom: -80px; right: -80px;
+      width: 350px; height: 350px; background: rgba(255,255,255,.04); border-radius: 50%;
+    }
+    .cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; padding: 0 24px; }
+    .cta-badge {
+      display: inline-block; background: rgba(255,255,255,.18); color: #fff;
+      font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 7px 20px; border-radius: 50px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,.28);
+    }
+    .cta h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px;
+    }
+    .cta p { font-size: 1.05rem; opacity: .88; margin-bottom: 38px; line-height: 1.75; }
+    .cta-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 24px; }
+    .btn-cta-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--rose); font-size: .97rem; font-weight: 700;
+      padding: 15px 34px; border-radius: 50px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,.18); transition: transform .2s, box-shadow .2s;
+      border: none; cursor: pointer;
+    }
+    .btn-cta-white:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,.28); }
+    .btn-cta-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: #fff; font-size: .97rem; font-weight: 700;
+      padding: 15px 34px; border-radius: 50px; text-decoration: none;
+      border: 2px solid rgba(255,255,255,.6); transition: background .2s, border-color .2s;
+    }
+    .btn-cta-outline:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+    .cta-note { font-size: .85rem; opacity: .7; }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer { background: #2a1a1e; color: #b09098; padding: 36px 0; }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 48px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--rose-light); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: .82rem; color: #907880; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--rose-light); }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: .85rem; color: #b09098; transition: background .2s, color .2s;
+    }
+    .social-btn:hover { background: var(--rose); color: #fff; }
+    .social-btn.fb:hover { background: #1877f2; }
+    .social-btn.ig:hover { background: radial-gradient(circle at 30% 110%, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .social-btn.zl:hover { background: #0068ff; }
+
+    /* ── QR MODAL ────────────────────────────────────────── */
+    .qr-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(30,10,15,.55); backdrop-filter: blur(4px);
+      z-index: 999; align-items: center; justify-content: center;
+    }
+    .qr-overlay.active { display: flex; }
+    .qr-box {
+      background: #fff; border-radius: 24px; padding: 36px 32px 28px;
+      text-align: center; max-width: 300px; width: 90%; position: relative;
+      box-shadow: 0 24px 60px rgba(0,0,0,.22); animation: popIn .25s ease;
+    }
+    @keyframes popIn { from { transform: scale(.88); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .qr-close {
+      position: absolute; top: 14px; right: 16px;
+      background: #f5e8ea; border: none; border-radius: 50%;
+      width: 30px; height: 30px; font-size: 1rem; cursor: pointer;
+      color: var(--rose); display: flex; align-items: center; justify-content: center; transition: background .2s;
+    }
+    .qr-close:hover { background: #f8d4db; }
+    .qr-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--rose); margin-bottom: 4px; }
+    .qr-sub { font-size: .78rem; color: var(--muted); margin-bottom: 18px; }
+    .qr-box img { width: 180px; height: 180px; border-radius: 12px; border: 3px solid #f0dde2; display: block; margin: 0 auto 16px; }
+    .qr-phone { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .qr-hint { font-size: .78rem; color: var(--muted); }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .container, .header-inner, .stats-inner, .footer-inner { padding: 0 32px; }
+      .pain-grid, .solution-grid { grid-template-columns: repeat(2, 1fr); }
+      .review-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .container, .header-inner, .stats-inner, .footer-inner { padding: 0 20px; }
+      nav { display: none; }
+      .hero-wrap { flex-direction: column; gap: 36px; padding: 48px 0; min-height: auto; }
+      .hero-visual { width: 100%; min-height: 320px; }
+      .collage-grid { max-width: 100%; height: 320px; }
+      .section-wrap { padding: 56px 0; }
+      .pain-grid, .solution-grid { grid-template-columns: 1fr; }
+      .benefit-list { grid-template-columns: 1fr; }
+      .review-grid { grid-template-columns: 1fr; }
+      .sale-inner { flex-direction: column; }
+      .sale-visual { justify-content: center; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .sale-visual { display: none; }
+      .stats-inner { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    ✨ Ưu đãi tháng này: Giảm 10% cho 50 khách đầu tiên &nbsp;–&nbsp;
+    <a href="#lien-he">Nhận ngay →</a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo">NOMIE<sup>✦</sup></a>
+      <nav>
+        <a href="#van-de">Vấn đề</a>
+        <a href="#giai-phap">Giải pháp</a>
+        <a href="#loi-ich">Lợi ích</a>
+        <a href="#khach-hang">Khách hàng</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:0792204611">Gọi ngay</a>
+        <a href="#lien-he" class="btn-nav">Tư vấn miễn phí</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-wrap">
+        <div class="hero-content">
+          <div class="hero-badge">✦ Mỹ phẩm chính hãng · Sỉ &amp; Lẻ</div>
+          <h1>Làn Da Đẹp<br>Không Còn<br>Là <em>Giấc Mơ</em></h1>
+          <p>Nguồn mỹ phẩm uy tín – rõ nguồn gốc, giá tốt nhất.
+             Dành cho chị em dùng lẻ và các đại lý muốn nhập sỉ lợi nhuận cao.</p>
+          <div class="hero-cta">
+            <a href="#lien-he" class="btn-primary">🛍️ Đặt hàng ngay</a>
+            <a href="#giai-phap" class="btn-ghost">
+              Xem chi tiết <span class="arrow">→</span>
+            </a>
+          </div>
+          <div class="trust-strip">
+            <div class="trust-item"><span class="dot"></span>2.000+ khách tin dùng</div>
+            <div class="trust-item"><span class="dot"></span>Giao toàn quốc</div>
+            <div class="trust-item"><span class="dot"></span>Hoàn tiền nếu không ưng</div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="collage-grid">
+            <div class="ci ci-main">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=500&fit=crop&q=85&auto=format" alt="Bộ dưỡng da" />
+            </div>
+            <div class="ci ci-top">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=220&fit=crop&q=85&auto=format" alt="Serum dưỡng da" />
+            </div>
+            <div class="ci ci-bot">
+              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=220&fit=crop&q=85&auto=format" alt="Kem dưỡng ẩm" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat"><span class="stat-num">2.000+</span><span class="stat-lbl">Khách hàng tin dùng</span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-lbl">Hài lòng sau khi mua</span></div>
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Đại lý sỉ toàn quốc</span></div>
+      <div class="stat"><span class="stat-num">4.9 ★</span><span class="stat-lbl">Đánh giá trung bình</span></div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="section-wrap bg-cream" id="van-de">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Vấn đề bạn đang gặp?</span>
+        <h2 class="sec-title">Mua Mỹ Phẩm Ngày Nay<br>Đang Khiến Bạn Đau Đầu?</h2>
+        <p class="sec-desc">Hàng giả, giá chặt chém, không rõ xuất xứ – bạn không phải người duy nhất gặp phải điều này.</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-icon">😰</div>
+          <h3>Sợ mua phải hàng giả, hàng nhái</h3>
+          <p>Thị trường tràn lan mỹ phẩm không rõ nguồn gốc, dùng vào gây kích ứng, nổi mụn, ảnh hưởng sức khoẻ.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">💸</div>
+          <h3>Giá sỉ không thực sự rẻ</h3>
+          <p>Nhiều nơi gọi là "giá sỉ" nhưng vẫn đắt hơn thị trường, khiến người bán lẻ không có lợi nhuận.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">😤</div>
+          <h3>Tư vấn qua loa, mua về không hợp</h3>
+          <p>Không ai hỗ trợ phân tích da, mua về không phù hợp, lãng phí tiền bạc mà da vẫn không cải thiện.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-icon">📦</div>
+          <h3>Giao hàng chậm, đóng gói cẩu thả</h3>
+          <p>Đặt hàng online rồi chờ mãi, nhận về thì vỡ bể, móp méo – mất cả tiền lẫn thời gian.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section-wrap bg-white" id="giai-phap">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Giải pháp của chúng tôi</span>
+        <h2 class="sec-title">Chúng Tôi Giải Quyết<br>Tất Cả Những Điều Đó</h2>
+        <p class="sec-desc">Một đầu mối – mỹ phẩm thật, giá tốt, tư vấn tận tâm và giao hàng nhanh chóng.</p>
+      </div>
+      <div class="solution-grid">
+        <div class="sol-card">
+          <div class="sol-icon">🏷️</div>
+          <h3>Hàng chính hãng 100%</h3>
+          <p>Tất cả sản phẩm đều có tem nhãn, chứng từ, nguồn gốc rõ ràng. Cam kết hoàn tiền nếu phát hiện hàng giả.</p>
+        </div>
+        <div class="sol-card">
+          <div class="sol-icon">💰</div>
+          <h3>Giá sỉ cực tốt, chiết khấu cao</h3>
+          <p>Càng nhập nhiều chiết khấu càng cao. Phù hợp cả người mua lẻ lẫn đại lý, cửa hàng.</p>
+        </div>
+        <div class="sol-card">
+          <div class="sol-icon">💬</div>
+          <h3>Tư vấn da miễn phí</h3>
+          <p>Chuyên gia phân tích loại da, gợi ý sản phẩm phù hợp – không cần trả thêm một đồng nào.</p>
+        </div>
+        <div class="sol-card">
+          <div class="sol-icon">🚀</div>
+          <h3>Giao hàng nhanh, đóng gói cẩn thận</h3>
+          <p>Ship toàn quốc trong 1–3 ngày. Đóng gói kỹ lưỡng, hàng đến tay nguyên vẹn 100%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALE BANNER -->
+  <section class="sale-banner">
+    <div class="container">
+      <div class="sale-inner">
+        <div class="sale-left">
+          <div class="sale-tag">Ưu đãi đặc biệt</div>
+          <h2>Nhập Sỉ<br><span>Tiết Kiệm Đến 40%</span></h2>
+          <p>Đăng ký đại lý ngay hôm nay, nhận bảng giá sỉ độc quyền và chính sách hỗ trợ kinh doanh toàn diện.
+             Hàng trăm chị em đã bắt đầu kiếm thêm 5–15 triệu/tháng từ đây.</p>
+          <div class="sale-btns">
+            <a href="#lien-he" class="btn-primary">Nhận báo giá sỉ ngay</a>
+            <a href="#lien-he" class="btn-outline">Tư vấn miễn phí</a>
+          </div>
+        </div>
+        <div class="sale-visual">
+          <div class="sale-prod-wrap">
+            <div class="sale-prod-img sp-tall">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&h=320&fit=crop&q=85&auto=format" alt="Serum" width="100" height="160" />
+            </div>
+            <span class="sale-prod-lbl">Serum</span>
+          </div>
+          <div class="sale-prod-wrap">
+            <div class="sale-prod-img sp-taller">
+              <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=220&h=400&fit=crop&q=85&auto=format" alt="Toner" width="110" height="200" />
+            </div>
+            <span class="sale-prod-lbl">Toner</span>
+          </div>
+          <div class="sale-prod-wrap">
+            <div class="sale-prod-img sp-wide">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=220&h=220&fit=crop&q=85&auto=format" alt="Kem dưỡng" width="110" height="110" />
+            </div>
+            <span class="sale-prod-lbl">Kem dưỡng</span>
+          </div>
+          <div class="sale-prod-wrap">
+            <div class="sale-prod-img sp-short">
+              <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=180&h=280&fit=crop&q=85&auto=format" alt="Essence" width="90" height="140" />
+            </div>
+            <span class="sale-prod-lbl">Essence</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="section-wrap bg-cream" id="loi-ich">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Tại sao chọn chúng tôi?</span>
+        <h2 class="sec-title">Lợi Ích Bạn Nhận Được</h2>
+        <p class="sec-desc">Mỗi đơn hàng đều mang lại giá trị thực sự – không chỉ là mỹ phẩm.</p>
+      </div>
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="check-circle">✓</div>
+          <div>
+            <h4>Tiết kiệm 20–40% so với mua lẻ thông thường</h4>
+            <p>Lấy thẳng từ nhà phân phối, không qua trung gian – giá tốt nhất chuyển ngay đến bạn.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="check-circle">✓</div>
+          <div>
+            <h4>Da cải thiện rõ rệt sau 2–4 tuần sử dụng</h4>
+            <p>Sản phẩm chọn lọc kỹ càng, đã kiểm nghiệm – da trắng sáng, giảm mụn, mờ thâm nhanh.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="check-circle">✓</div>
+          <div>
+            <h4>Kiếm thêm 5–15 triệu/tháng khi bán lại</h4>
+            <p>Nhiều chị em đã bắt đầu kinh doanh mỹ phẩm từ nguồn sỉ và đang có thu nhập ổn định.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="check-circle">✓</div>
+          <div>
+            <h4>Hỗ trợ sau bán hàng trọn đời</h4>
+            <p>Dùng không hợp? Phản ứng? Cần đổi? Chúng tôi luôn ở đây – nhắn tin bất cứ lúc nào.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="check-circle">✓</div>
+          <div>
+            <h4>Đổi trả linh hoạt trong 7 ngày</h4>
+            <p>Không thích, không hợp – đổi trả dễ dàng, không hỏi khó, không mất phí. Mua hàng an tâm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section-wrap bg-white" id="khach-hang">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Khách hàng nói gì?</span>
+        <h2 class="sec-title">Hơn 2.000 Khách Hàng<br>Đã Tin Tưởng Chúng Tôi</h2>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Mình đã mua thử 1 bộ skincare, da cải thiện rõ rệt chỉ sau 3 tuần. Quan trọng là hàng thật, giá lại mềm hơn ngoài tiệm rất nhiều!"</p>
+          <div class="reviewer">
+            <div class="review-avatar">L</div>
+            <div class="reviewer-info">
+              <div class="name">Chị Nguyễn Thị Lan</div>
+              <div class="role">Khách lẻ – TP. Hồ Chí Minh</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Mình nhập sỉ 3 tháng nay, mỗi tháng lời khoảng 8–10 triệu. Nguồn hàng ổn định, tư vấn nhiệt tình, giao hàng nhanh. Rất uy tín!"</p>
+          <div class="reviewer">
+            <div class="review-avatar">C</div>
+            <div class="reviewer-info">
+              <div class="name">Chị Trần Minh Châu</div>
+              <div class="role">Đại lý sỉ – Đà Nẵng</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>"Lần đầu mua mỹ phẩm online mà không lo hàng giả. Được tư vấn loại da miễn phí, dùng đúng sản phẩm, da mình lên tone hẳn sau 1 tháng."</p>
+          <div class="reviewer">
+            <div class="review-avatar">H</div>
+            <div class="reviewer-info">
+              <div class="name">Chị Lê Thu Hà</div>
+              <div class="role">Khách lẻ – Hà Nội</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="lien-he">
+    <div class="cta-inner">
+      <div class="cta-badge">✦ Sẵn sàng bắt đầu?</div>
+      <h2>Đặt Hàng Ngay Hôm Nay<br>Nhận Ưu Đãi Độc Quyền</h2>
+      <p>Nhắn tin ngay – được tư vấn miễn phí, nhận báo giá sỉ tốt nhất và ưu đãi dành riêng cho khách mới.</p>
+      <div class="cta-buttons">
+        <button onclick="document.getElementById('qrModal').classList.add('active')" class="btn-cta-white">💬 Nhắn Zalo Tư Vấn Ngay</button>
+        <a href="tel:0792204611" class="btn-cta-outline">📞 Gọi: 079.220.4611</a>
+      </div>
+      <p class="cta-note">⏰ Ưu đãi giới hạn – Giảm thêm 10% cho 50 khách đầu tiên trong tháng này</p>
+    </div>
+  </section>
+
+  <!-- QR MODAL -->
+  <div class="qr-overlay" id="qrModal" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="qr-box">
+      <button class="qr-close" onclick="document.getElementById('qrModal').classList.remove('active')">✕</button>
+      <div class="qr-logo">NOMIE✦</div>
+      <div class="qr-sub">Quét mã để nhắn Zalo ngay</div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://zalo.me/0792204611&color=c9707a&bgcolor=ffffff" alt="QR Zalo Nomie" />
+      <div class="qr-phone">0792 204 611</div>
+      <div class="qr-hint">Mở Zalo → Quét mã → Nhắn tin tư vấn miễn phí</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">NOMIE✦</div>
+      <div class="footer-links">
+        <a href="#">Chính sách đổi trả</a>
+        <a href="#">Hướng dẫn mua sỉ</a>
+        <a href="#">Liên hệ</a>
+        <a href="#">Địa chỉ: 174 đường số 20</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/duy.ngoc.686133?locale=vi_VN" target="_blank" class="social-btn fb" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://zalo.me/0792204611" target="_blank" class="social-btn zl" title="Zalo">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.25 16.5H8.62l4.07-5.61H8.75V9.5h8.38l-4.07 5.61h4.19v1.39z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/nomie.order" target="_blank" class="social-btn ig" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
