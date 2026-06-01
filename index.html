@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nomie – Order Taobao | Thời Trang Giá Tốt</title>
+  <title>Nomie – Order Mọi Thứ Từ Taobao 💓 | Thời Trang Giá Tốt</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -179,7 +179,7 @@
     .pain-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; }
 
     /* ── SOLUTION ────────────────────────────────────────── */
-    .solution-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .solution-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
     .sol-card {
       background: var(--cream); border-radius: 18px; padding: 30px 22px;
       border: 1.5px solid #f0dde2; transition: transform .25s, box-shadow .25s;
@@ -287,14 +287,29 @@
     .qr-phone { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
     .qr-hint { font-size: .78rem; color: var(--muted); }
 
+    /* ── CATEGORIES ─────────────────────────────────────── */
+    .cat-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .cat-card {
+      background: var(--cream); border-radius: 20px; padding: 24px 16px;
+      text-align: center; border: 1.5px solid #f0dde2;
+      transition: transform .25s, box-shadow .25s; cursor: default;
+    }
+    .cat-card:hover { transform: translateY(-8px); box-shadow: 0 12px 36px rgba(201,112,122,.15); }
+    .cat-icon { font-size: 2.2rem; margin-bottom: 10px; }
+    .cat-name { font-weight: 700; font-size: .92rem; color: var(--text); margin-bottom: 6px; }
+    .cat-desc { font-size: .76rem; color: var(--muted); line-height: 1.55; }
+
     /* ── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 1024px) {
       .container, .header-inner, .stats-inner, .footer-inner { padding: 0 32px; }
-      .pain-grid, .solution-grid { grid-template-columns: repeat(2, 1fr); }
+      .pain-grid { grid-template-columns: repeat(2, 1fr); }
+      .solution-grid { grid-template-columns: repeat(3, 1fr); }
       .review-grid { grid-template-columns: repeat(2, 1fr); }
+      .cat-grid { grid-template-columns: repeat(3, 1fr); }
     }
     @media (max-width: 768px) {
       .container, .header-inner, .stats-inner, .footer-inner { padding: 0 20px; }
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
       nav { display: none; }
       .hero-wrap { flex-direction: column; gap: 36px; padding: 48px 0; min-height: auto; }
       .hero-visual { width: 100%; min-height: 320px; }
@@ -317,8 +332,8 @@
 
   <!-- TOPBAR -->
   <div class="topbar">
-    🎁 Freeship đơn từ 500k – Nhận ưu đãi ngay &nbsp;–&nbsp;
-    <a href="#lien-he">Đặt đơn →</a>
+    💓 Thấy gì thích thì order thôi! Freeship cho đơn đầu tiên &nbsp;–&nbsp;
+    <a href="#lien-he">Nhắn Nomie ngay →</a>
   </div>
 
   <!-- HEADER -->
@@ -326,14 +341,14 @@
     <div class="header-inner">
       <a href="#" class="logo">NOMIE<sup>✦</sup></a>
       <nav>
-        <a href="#van-de">Vấn đề</a>
-        <a href="#giai-phap">Dịch vụ</a>
-        <a href="#loi-ich">Lợi ích</a>
-        <a href="#khach-hang">Khách hàng</a>
+        <a href="#van-de">Bạn đang gặp gì?</a>
+        <a href="#giai-phap">Nomie làm gì?</a>
+        <a href="#loi-ich">Tại sao chọn Nomie</a>
+        <a href="#khach-hang">Review</a>
       </nav>
       <div class="header-actions">
         <a href="tel:0792204611">Gọi ngay</a>
-        <a href="#lien-he" class="btn-nav">Đặt order ngay</a>
+        <a href="#lien-he" class="btn-nav">Order ngay 💓</a>
       </div>
     </div>
   </header>
@@ -343,20 +358,19 @@
     <div class="container">
       <div class="hero-wrap">
         <div class="hero-content">
-          <div class="hero-badge">✦ Order Taobao · Sỉ &amp; Lẻ · Toàn Quốc</div>
-          <h1>Hàng Taobao<br>Về Tận Tay<br><em>Giá Cực Hời</em></h1>
-          <p>Không biết tiếng Trung? Không cần! Chỉ cần gửi link – chúng tôi lo hết từ đặt hàng,
-             kiểm tra đến giao tận nhà với giá tốt nhất.</p>
+          <div class="hero-badge">💓 ORDER EVERYTHING – Váy · Giày · Túi · Kitty · &amp; Mọi Thứ Bạn Thích</div>
+          <h1>Thấy Gì Thích<br>Là Có Ngay,<br><em>Để Nomie Lo</em></h1>
+          <p>Váy xinh, giày cute, túi trendy, đồ Kitty hay bất cứ thứ gì trên Taobao – cứ gửi link cho Nomie. Mình order, kiểm hàng, ship tận tay. Bạn chỉ cần... thích thôi! 💓</p>
           <div class="hero-cta">
-            <a href="#lien-he" class="btn-primary">🛍️ Đặt order ngay</a>
+            <a href="#lien-he" class="btn-primary">🛍️ Order ngay nào!</a>
             <a href="#giai-phap" class="btn-ghost">
-              Xem dịch vụ <span class="arrow">→</span>
+              Nomie làm gì? <span class="arrow">→</span>
             </a>
           </div>
           <div class="trust-strip">
-            <div class="trust-item"><span class="dot"></span>3.000+ đơn thành công</div>
-            <div class="trust-item"><span class="dot"></span>Kiểm hàng trước khi gửi</div>
-            <div class="trust-item"><span class="dot"></span>Báo giá minh bạch</div>
+            <div class="trust-item"><span class="dot"></span>3.000+ bạn đã tin tưởng</div>
+            <div class="trust-item"><span class="dot"></span>Kiểm hàng có ảnh thực tế</div>
+            <div class="trust-item"><span class="dot"></span>Báo giá rõ, không bất ngờ</div>
           </div>
         </div>
         <div class="hero-visual">
@@ -379,41 +393,84 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
-      <div class="stat"><span class="stat-num">3.000+</span><span class="stat-lbl">Đơn hàng thành công</span></div>
-      <div class="stat"><span class="stat-num">98%</span><span class="stat-lbl">Khách hàng hài lòng</span></div>
-      <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Shop Taobao uy tín</span></div>
-      <div class="stat"><span class="stat-num">4.9 ★</span><span class="stat-lbl">Đánh giá trung bình</span></div>
+      <div class="stat"><span class="stat-num">3.000+</span><span class="stat-lbl">Đơn đã được giao 🎉</span></div>
+      <div class="stat"><span class="stat-num">98%</span><span class="stat-lbl">Bạn hài lòng 🥰</span></div>
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-lbl">Shop Taobao chọn lọc</span></div>
+      <div class="stat"><span class="stat-num">4.9 ★</span><span class="stat-lbl">Rating trung bình</span></div>
     </div>
   </div>
+
+  <!-- CATEGORIES -->
+  <section class="section-wrap bg-white">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Nomie order được gì?</span>
+        <h2 class="sec-title">Order Mọi Thứ Bạn Thích 💓</h2>
+        <p class="sec-desc">Không chỉ quần áo đâu nha – thấy gì cute trên Taobao là Nomie order được hết!</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-icon">👗</div>
+          <div class="cat-name">Váy & Áo</div>
+          <div class="cat-desc">Váy mini, crop top, corset, set đồ trendy theo mùa</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">👠</div>
+          <div class="cat-name">Giày & Dép</div>
+          <div class="cat-desc">Ballet flat, sandal, sneaker, dép cói siêu cute</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">👜</div>
+          <div class="cat-name">Túi Xách</div>
+          <div class="cat-desc">Tote bag, mini bag, túi đeo chéo cute đủ kiểu</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">🎀</div>
+          <div class="cat-name">Phụ Kiện</div>
+          <div class="cat-desc">Kẹp tóc, vòng cổ, nhẫn, mũ, băng đô dễ thương</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">🧸</div>
+          <div class="cat-name">Đồ Cute & Kitty</div>
+          <div class="cat-desc">Thú bông, ốp lưng, phụ kiện Sanrio, Hello Kitty</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">🌙</div>
+          <div class="cat-name">Đồ Nhà & Ngủ</div>
+          <div class="cat-desc">Pyjama cute, đồ dùng nhà, bình nước Kitty, gối bông</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PROBLEM -->
   <section class="section-wrap bg-cream" id="van-de">
     <div class="container">
       <div class="sec-head">
-        <span class="sec-label">Vấn đề bạn đang gặp?</span>
-        <h2 class="sec-title">Tự Order Taobao<br>Đang Khiến Bạn Đau Đầu?</h2>
-        <p class="sec-desc">Rào cản ngôn ngữ, hàng không như hình, phí ẩn tràn lan – bạn không phải người duy nhất gặp phải điều này.</p>
+        <span class="sec-label">Bạn đang gặp gì?</span>
+        <h2 class="sec-title">Tự Order Taobao Mà<br>Gặp Mấy Cái Này Không?</h2>
+        <p class="sec-desc">Không biết tiếng, hàng về khác xa ảnh, phí ẩn tràn lan... Relax đi, Nomie hiểu bạn mà! 😂</p>
       </div>
       <div class="pain-grid">
         <div class="pain-card">
           <div class="pain-icon">🈚</div>
-          <h3>Không biết tiếng Trung</h3>
-          <p>Giao diện Taobao toàn chữ Trung, không biết cách đặt hàng, chọn size, hay liên hệ shop khi có vấn đề.</p>
+          <h3>Tiếng Trung nhìn là ngán</h3>
+          <p>Giao diện Taobao toàn chữ lạ, không biết chọn size, liên hệ shop hay theo dõi đơn kiểu gì.</p>
         </div>
         <div class="pain-card">
           <div class="pain-icon">😱</div>
-          <h3>Hàng về khác xa hình</h3>
-          <p>Ảnh đẹp lung linh nhưng hàng thật chất lượng kém, màu sắc sai, size lệch – mất tiền oan không biết khiếu nại ai.</p>
+          <h3>Hàng về... không nhận ra</h3>
+          <p>Ảnh mẫu lung linh nhưng hàng thật thì nhăn nhó, màu lệch, size sai – mất tiền mà không biết kêu ai.</p>
         </div>
         <div class="pain-card">
           <div class="pain-icon">💸</div>
-          <h3>Phí ẩn, tính sau mới biết</h3>
-          <p>Nhiều dịch vụ báo giá thấp ban đầu nhưng cộng đủ thứ phí sau khiến đơn hàng đội giá gấp đôi.</p>
+          <h3>Phí ẩn, chốt xong mới biết</h3>
+          <p>Báo giá nghe rẻ, nhưng cộng hết các thứ phí thì đơn đội lên gấp đôi. Cay không kịp!</p>
         </div>
         <div class="pain-card">
-          <div class="pain-icon">📦</div>
-          <h3>Hàng thất lạc, vỡ hỏng</h3>
-          <p>Đặt hàng xong chờ mãi không thấy, hoặc nhận về thì móp méo, vỡ bể – không ai chịu trách nhiệm.</p>
+          <div class="pain-icon">🧸</div>
+          <h3>Không biết shop nào uy tín</h3>
+          <p>Taobao có hàng triệu shop, toàn review chữ Trung – không biết đâu chất, đâu lừa. Order xong là cầu nguyện!</p>
         </div>
       </div>
     </div>
@@ -423,30 +480,35 @@
   <section class="section-wrap bg-white" id="giai-phap">
     <div class="container">
       <div class="sec-head">
-        <span class="sec-label">Dịch vụ của chúng tôi</span>
-        <h2 class="sec-title">Chỉ Cần Gửi Link –<br>Chúng Tôi Lo Hết</h2>
-        <p class="sec-desc">Từ đặt hàng, thanh toán, kiểm tra đến vận chuyển – một đầu mối duy nhất, minh bạch từng bước.</p>
+        <span class="sec-label">Nomie làm gì cho bạn?</span>
+        <h2 class="sec-title">Nomie Lo Hết –<br>Bạn Chỉ Cần Đợi Hàng 💓</h2>
+        <p class="sec-desc">Gửi link → Nomie đặt → Kiểm hàng → Ship tận tay. Đơn giản vậy thôi! 🛍️</p>
       </div>
       <div class="solution-grid">
         <div class="sol-card">
           <div class="sol-icon">🔗</div>
-          <h3>Đặt hàng thay toàn bộ</h3>
-          <p>Gửi link sản phẩm Taobao bất kỳ – chúng tôi đặt hàng, trả tiền và theo dõi đơn thay bạn.</p>
+          <h3>Gửi link là xong phần bạn</h3>
+          <p>Copy link sản phẩm Taobao gửi cho Nomie – mình đặt hàng, thanh toán, theo dõi đơn thay bạn hết.</p>
         </div>
         <div class="sol-card">
           <div class="sol-icon">🔍</div>
-          <h3>Kiểm hàng kỹ tại kho TQ</h3>
-          <p>Hàng về kho Trung Quốc được kiểm tra chất lượng, chụp ảnh thực tế gửi cho bạn xác nhận trước khi ship.</p>
+          <h3>Kiểm hàng tại kho, có ảnh thật</h3>
+          <p>Hàng về kho được kiểm tra tỉ mỉ, chụp ảnh thực tế gửi cho bạn xem trước khi ship. Ưng thì ship!</p>
         </div>
         <div class="sol-card">
           <div class="sol-icon">📋</div>
-          <h3>Báo giá minh bạch từ đầu</h3>
-          <p>Giá sản phẩm + phí ship + phí dịch vụ được tính rõ ràng ngay từ đầu. Không phát sinh, không bất ngờ.</p>
+          <h3>Báo giá rõ ràng từ đầu</h3>
+          <p>Giá hàng + phí ship + phí dịch vụ tính hết ngay từ đầu. Không có phí ẩn, không bất ngờ.</p>
+        </div>
+        <div class="sol-card">
+          <div class="sol-icon">⭐</div>
+          <h3>Nomie chọn shop uy tín sẵn</h3>
+          <p>Không cần mò shop lạ – Nomie đã có danh sách 500+ shop Taobao uy tín, chất lượng tốt, giá hợp lý.</p>
         </div>
         <div class="sol-card">
           <div class="sol-icon">🚀</div>
-          <h3>Giao về Việt Nam nhanh</h3>
-          <p>Hàng được đóng gói cẩn thận, ship về Việt Nam trong 7–15 ngày. Có mã theo dõi đơn hàng realtime.</p>
+          <h3>7–15 ngày hàng tới tay</h3>
+          <p>Đóng gói cẩn thận, ship về Việt Nam trong 7–15 ngày. Có tracking realtime theo từng bước.</p>
         </div>
       </div>
     </div>
@@ -458,12 +520,11 @@
       <div class="sale-inner">
         <div class="sale-left">
           <div class="sale-tag">Dành cho chủ shop</div>
-          <h2>Order Sỉ<br><span>Chiết Khấu Đến 30%</span></h2>
-          <p>Bạn đang kinh doanh quần áo và muốn nhập hàng Taobao giá tốt? Chúng tôi có gói sỉ riêng
-             với chiết khấu hấp dẫn, hỗ trợ tìm nguồn hàng và tư vấn xu hướng thời trang mới nhất.</p>
+          <h2>Mở Shop Mà<br><span>Ngại Nhập Hàng?</span></h2>
+          <p>Đang kinh doanh thời trang và muốn nhập Taobao giá gốc? Nomie có gói sỉ riêng – chiết khấu hấp dẫn, hỗ trợ tìm nguồn, tư vấn xu hướng mới nhất. Nhẹ nhàng lắm, để Nomie lo cho! 🛍️</p>
           <div class="sale-btns">
-            <a href="#lien-he" class="btn-primary">Nhận báo giá sỉ ngay</a>
-            <a href="#lien-he" class="btn-outline">Tư vấn miễn phí</a>
+            <a href="#lien-he" class="btn-primary">Lấy báo giá sỉ ngay</a>
+            <a href="#lien-he" class="btn-outline">Hỏi thêm miễn phí</a>
           </div>
         </div>
         <div class="sale-visual">
@@ -501,43 +562,43 @@
     <div class="container">
       <div class="sec-head">
         <span class="sec-label">Tại sao chọn Nomie?</span>
-        <h2 class="sec-title">Lợi Ích Bạn Nhận Được</h2>
-        <p class="sec-desc">Mỗi đơn hàng đều được chăm sóc tận tâm – từ lúc đặt đến khi hàng tới tay bạn.</p>
+        <h2 class="sec-title">Lý Do Hơn 3.000 Bạn<br>Tin Tưởng Nomie 💓</h2>
+        <p class="sec-desc">Không phải tự khen – mấy bạn hay review vậy mà! 😆</p>
       </div>
       <div class="benefit-list">
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Tiết kiệm 30–50% so với mua hàng trong nước</h4>
-            <p>Hàng Taobao chính gốc giá gốc Trung Quốc – rẻ hơn hàng nhập lậu trôi nổi mà chất lượng đảm bảo hơn nhiều.</p>
+            <h4>Rẻ hơn 30–50% so với mua trong nước</h4>
+            <p>Hàng Taobao giá gốc Trung – rẻ hơn nhiều mà chất không thua. Mua một lần là ghiền!</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Hơn 1 tỷ sản phẩm – đủ mọi phong cách</h4>
-            <p>Từ thời trang công sở, dạo phố đến đồ couple, đồ thể thao – tìm được hết trên Taobao với giá tốt nhất.</p>
+            <h4>Hơn 1 tỷ sản phẩm – phong cách nào cũng có</h4>
+            <p>Công sở, dạo phố, couple, thể thao, ulzzang... Taobao có hết, Nomie order hết! 🛍️</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Nhận hàng trong 7–15 ngày</h4>
-            <p>Quy trình vận chuyển tối ưu, có tracking realtime từ kho Trung Quốc về đến tay bạn tại Việt Nam.</p>
+            <h4>Hàng tới tay trong 7–15 ngày</h4>
+            <p>Quy trình tối ưu, có tracking realtime từng bước. Đặt xong cứ ngồi chờ hàng thôi!</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
-            <h4>Tư vấn size & chất liệu miễn phí</h4>
-            <p>Không biết chọn size Trung – Việt? Chúng tôi tư vấn dựa trên số đo của bạn, hạn chế tối đa sai size.</p>
+            <h4>Tư vấn size, chất liệu – không lo sai</h4>
+            <p>Không biết size Trung? Nomie tư vấn theo số đo của bạn, hạn chế tối đa việc nhầm size.</p>
           </div>
         </div>
         <div class="benefit-item">
           <div class="check-circle">✓</div>
           <div>
             <h4>Hoàn tiền nếu hàng lỗi do shop</h4>
-            <p>Hàng lỗi, sai mẫu, kém chất lượng – chúng tôi khiếu nại shop Taobao và hoàn tiền cho bạn. An tâm tuyệt đối.</p>
+            <p>Sai mẫu, kém chất lượng – Nomie khiếu nại shop Taobao và hoàn tiền cho bạn. An tâm 100%!</p>
           </div>
         </div>
       </div>
@@ -548,13 +609,13 @@
   <section class="section-wrap bg-white" id="khach-hang">
     <div class="container">
       <div class="sec-head">
-        <span class="sec-label">Khách hàng nói gì?</span>
-        <h2 class="sec-title">Hơn 3.000 Đơn Hàng<br>Được Giao Thành Công</h2>
+        <span class="sec-label">Mấy bạn nói gì về Nomie?</span>
+        <h2 class="sec-title">Review Thật Từ<br>Những Người Đã Order 💓</h2>
       </div>
       <div class="review-grid">
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Mình order váy Taobao lần đầu, tưởng sẽ gặp nhiều rắc rối nhưng Nomie lo hết. Hàng về đúng như hình, size vừa vặn, giao trong 10 ngày. Quá ổn!"</p>
+          <p>"Lần đầu order Taobao, cứ nghĩ sẽ rắc rối lắm. Nhưng nhắn cho Nomie là mình lo hết, hàng về y chang hình, size vừa vặn, giao trong 10 ngày. Thật sự quá ổn luôn!"</p>
           <div class="reviewer">
             <div class="review-avatar">L</div>
             <div class="reviewer-info">
@@ -565,7 +626,7 @@
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Mình nhập sỉ 3 tháng nay, mỗi đợt 50–100 món. Báo giá rõ ràng, hàng được kiểm tra kỹ trước khi ship. Chưa có đơn nào bị lỗi hay thất lạc."</p>
+          <p>"Mình nhập sỉ 3 tháng nay, mỗi đợt 50–100 món. Báo giá rõ ràng, có ảnh kiểm hàng trước khi ship, chưa có đơn nào lỗi hay thất lạc. Nomie uy tín thật sự!"</p>
           <div class="reviewer">
             <div class="review-avatar">C</div>
             <div class="reviewer-info">
@@ -576,12 +637,12 @@
         </div>
         <div class="review-card">
           <div class="review-stars">★★★★★</div>
-          <p>"Trước hay order qua các trang trôi nổi hay bị sai size hoặc màu. Từ khi dùng Nomie được tư vấn size kỹ, 5 đơn gần nhất đều chuẩn hết. Tin tưởng lắm!"</p>
+          <p>"Trước hay bị sai size vì tự đặt không biết quy đổi. Từ khi có Nomie tư vấn kỹ, 5 đơn gần nhất đều chuẩn hết. Bây giờ mình order đều đặn mỗi tháng luôn 😍"</p>
           <div class="reviewer">
             <div class="review-avatar">H</div>
             <div class="reviewer-info">
               <div class="name">Chị Lê Thu Hà</div>
-              <div class="role">Khách lẻ – Hà Nội</div>
+              <div class="role">Khách thân thiết – Hà Nội</div>
             </div>
           </div>
         </div>
@@ -592,14 +653,14 @@
   <!-- CTA -->
   <section class="cta" id="lien-he">
     <div class="cta-inner">
-      <div class="cta-badge">✦ Sẵn sàng đặt order?</div>
-      <h2>Gửi Link – Nhận Báo Giá<br>Trong Vòng 15 Phút</h2>
-      <p>Nhắn link sản phẩm Taobao qua Zalo – chúng tôi báo giá tổng (hàng + ship + dịch vụ) ngay lập tức, không chờ đợi.</p>
+      <div class="cta-badge">💓 Sẵn sàng chưa?</div>
+      <h2>Thấy Gì Ưng?<br>Gửi Cho Nomie Ngay!</h2>
+      <p>Chụp ảnh hoặc copy link Taobao rồi nhắn qua Zalo – Nomie báo giá đầy đủ trong 15 phút, không chờ đợi.</p>
       <div class="cta-buttons">
-        <button onclick="document.getElementById('qrModal').classList.add('active')" class="btn-cta-white">💬 Gửi Link Taobao Qua Zalo</button>
+        <button onclick="document.getElementById('qrModal').classList.add('active')" class="btn-cta-white">💬 Nhắn Zalo cho Nomie</button>
         <a href="tel:0792204611" class="btn-cta-outline">📞 Gọi: 079.220.4611</a>
       </div>
-      <p class="cta-note">⚡ Phản hồi trong 15 phút – Freeship đơn đầu tiên cho khách mới</p>
+      <p class="cta-note">⚡ Rep trong 15 phút · Freeship đơn đầu · Không ưng Nomie đổi lại 🤍</p>
     </div>
   </section>
 
@@ -611,7 +672,7 @@
       <div class="qr-sub">Quét mã để nhắn Zalo ngay</div>
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://zalo.me/0792204611&color=c9707a&bgcolor=ffffff" alt="QR Zalo Nomie" />
       <div class="qr-phone">0792 204 611</div>
-      <div class="qr-hint">Mở Zalo → Quét mã → Gửi link Taobao</div>
+      <div class="qr-hint">Mở Zalo → Quét mã → Gửi link Taobao 💓</div>
     </div>
   </div>
 
@@ -621,7 +682,7 @@
       <div class="footer-logo">NOMIE✦</div>
       <div class="footer-links">
         <a href="#">Chính sách đổi trả</a>
-        <a href="#">Hướng dẫn đặt order</a>
+        <a href="#">Hướng dẫn order</a>
         <a href="#">Liên hệ</a>
         <a href="#">Địa chỉ: 174 đường số 20</a>
       </div>

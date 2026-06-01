@@ -3,7 +3,8 @@
     "allow": [
       "PowerShell(& \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\GitHubDesktop\\\\bin\\\\git.exe\" --version)",
       "PowerShell(& \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\GitHubDesktop\\\\bin\\\\git.exe\" config user.name)",
-      "PowerShell(& \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\GitHubDesktop\\\\bin\\\\git.exe\" config user.email)"
+      "PowerShell(& \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\GitHubDesktop\\\\bin\\\\git.exe\" config user.email)",
+      "WebFetch(domain:phucnt2904.github.io)"
     ]
   }
 }
