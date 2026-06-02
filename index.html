@@ -717,7 +717,10 @@
         <h2 class="sec-title">Điền Form – Nomie<br>Liên Hệ Lại Trong 15 Phút 💓</h2>
         <p class="sec-desc">Điền thông tin bên dưới, Nomie sẽ chủ động liên hệ báo giá và xác nhận đơn cho bạn!</p>
       </div>
-      <form id="orderForm" class="order-form">
+      <form id="orderForm" class="order-form"
+            action="https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec"
+            method="post"
+            target="hidden_iframe">
         <div class="form-row">
           <div class="form-group">
             <label>Họ tên *</label>
@@ -743,26 +746,12 @@
           <textarea name="sanPham" rows="3" placeholder="Mô tả sản phẩm hoặc dán link ảnh vào đây. Ví dụ: váy hoa nhí tay bồng màu hồng, size M..." required></textarea>
         </div>
         <div class="form-group">
-          <label>Ảnh sản phẩm <span style="font-weight:400;color:var(--muted)">(không bắt buộc)</span></label>
-          <input type="file" id="imageInput" accept="image/*" style="display:none">
-          <div class="upload-zone" id="uploadZone">
-            <div id="uploadPrompt">
-              <div class="upload-icon">📎</div>
-              <div class="upload-text">Bấm để chọn ảnh hoặc kéo thả vào đây</div>
-              <div class="upload-hint">Hoặc dán ảnh từ clipboard (Ctrl+V) · PNG, JPG, WEBP · Tối đa 5MB</div>
-            </div>
-            <div class="upload-preview" id="uploadPreview" style="display:none">
-              <img id="previewImg" src="" alt="preview">
-              <button type="button" class="upload-remove" onclick="removeImage(event)">✕</button>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
           <label>Ghi chú thêm</label>
           <textarea name="ghiChu" rows="2" placeholder="Size, màu sắc, số lượng, yêu cầu đặc biệt..."></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submitBtn">Gửi đơn cho Nomie 💓</button>
+        <button type="submit" class="btn-submit" onclick="showSuccess()">Gửi đơn cho Nomie 💓</button>
       </form>
+      <iframe name="hidden_iframe" style="display:none"></iframe>
       <div id="formSuccess" class="form-success" style="display:none;">
         <div class="success-icon">💓</div>
         <h3>Nomie đã nhận đơn rồi!</h3>
@@ -851,91 +840,11 @@
   </footer>
 
   <script>
-    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec';
-    var uploadedImageData = null;
-
-    // Submit form
-    document.getElementById('orderForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = document.getElementById('submitBtn');
-      btn.disabled = true;
-      btn.textContent = 'Đang gửi...';
-
-      var fd = new FormData(this);
-      if (uploadedImageData) {
-        fd.append('imageData', uploadedImageData.base64);
-        fd.append('imageMime', uploadedImageData.mime);
-      }
-
-      fetch(SCRIPT_URL, { method: 'POST', body: fd })
-      .then(function() {
+    function showSuccess() {
+      setTimeout(function() {
         document.getElementById('orderForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
-      })
-      .catch(function() {
-        // CORS error khi đọc response là bình thường với Apps Script
-        // Data vẫn được ghi vào Sheet thành công
-        document.getElementById('orderForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      });
-    });
-
-    // Bấm vào upload zone → mở file picker
-    document.getElementById('uploadZone').addEventListener('click', function(e) {
-      if (!e.target.classList.contains('upload-remove')) {
-        document.getElementById('imageInput').click();
-      }
-    });
-
-    // Chọn file từ máy
-    document.getElementById('imageInput').addEventListener('change', function(e) {
-      if (e.target.files[0]) handleImageFile(e.target.files[0]);
-    });
-
-    // Dán ảnh từ clipboard (Ctrl+V)
-    document.addEventListener('paste', function(e) {
-      var items = (e.clipboardData || window.clipboardData).items;
-      for (var i = 0; i < items.length; i++) {
-        if (items[i].type.indexOf('image') !== -1) {
-          handleImageFile(items[i].getAsFile());
-          break;
-        }
-      }
-    });
-
-    // Kéo thả ảnh
-    var zone = document.getElementById('uploadZone');
-    zone.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('dragover'); });
-    zone.addEventListener('dragleave', function() { this.classList.remove('dragover'); });
-    zone.addEventListener('drop', function(e) {
-      e.preventDefault();
-      this.classList.remove('dragover');
-      if (e.dataTransfer.files[0]) handleImageFile(e.dataTransfer.files[0]);
-    });
-
-    function handleImageFile(file) {
-      if (!file.type.startsWith('image/')) { alert('Vui lòng chọn file ảnh nhé!'); return; }
-      if (file.size > 5 * 1024 * 1024) { alert('Ảnh tối đa 5MB nhé!'); return; }
-      var reader = new FileReader();
-      reader.onload = function(evt) {
-        var dataUrl = evt.target.result;
-        uploadedImageData = { base64: dataUrl.split(',')[1], mime: file.type };
-        document.getElementById('previewImg').src = dataUrl;
-        document.getElementById('uploadPrompt').style.display = 'none';
-        document.getElementById('uploadPreview').style.display = 'block';
-        document.getElementById('uploadZone').classList.add('has-image');
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function removeImage(e) {
-      e.stopPropagation();
-      uploadedImageData = null;
-      document.getElementById('imageInput').value = '';
-      document.getElementById('previewImg').src = '';
-      document.getElementById('uploadPreview').style.display = 'none';
-      document.getElementById('uploadPrompt').style.display = 'block';
-      document.getElementById('uploadZone').classList.remove('has-image');
+      }, 800);
     }
   </script>
 </body>
