@@ -917,7 +917,12 @@
           canvas.getContext('2d').drawImage(img, 0, 0, w, h);
           var compressed = canvas.toDataURL('image/jpeg', 0.75);
 
-          document.getElementById('hiddenImageData').value = compressed.split(',')[1];
+          // Dùng URL-safe base64: thay + → - và / → _ để tránh bị biến đổi khi form encode
+          var b64 = compressed.split(',')[1]
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=/g, '');
+          document.getElementById('hiddenImageData').value = b64;
           document.getElementById('hiddenImageMime').value = 'image/jpeg';
           document.getElementById('previewImg').src = compressed;
           document.getElementById('uploadPrompt').style.display = 'none';
