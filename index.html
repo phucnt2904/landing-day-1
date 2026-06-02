@@ -746,6 +746,23 @@
           <textarea name="sanPham" rows="3" placeholder="Mô tả sản phẩm hoặc dán link ảnh vào đây. Ví dụ: váy hoa nhí tay bồng màu hồng, size M..." required></textarea>
         </div>
         <div class="form-group">
+          <label>Ảnh sản phẩm <span style="font-weight:400;color:var(--muted)">(không bắt buộc)</span></label>
+          <input type="file" id="imageInput" accept="image/*" style="display:none">
+          <div class="upload-zone" id="uploadZone">
+            <div id="uploadPrompt">
+              <div class="upload-icon">📎</div>
+              <div class="upload-text">Bấm để chọn ảnh hoặc kéo thả vào đây</div>
+              <div class="upload-hint">Hoặc dán ảnh từ clipboard (Ctrl+V) · PNG, JPG, WEBP · Tối đa 5MB</div>
+            </div>
+            <div class="upload-preview" id="uploadPreview" style="display:none">
+              <img id="previewImg" src="" alt="preview">
+              <button type="button" class="upload-remove" onclick="removeImage(event)">✕</button>
+            </div>
+          </div>
+          <input type="hidden" name="imageData" id="hiddenImageData">
+          <input type="hidden" name="imageMime" id="hiddenImageMime">
+        </div>
+        <div class="form-group">
           <label>Ghi chú thêm</label>
           <textarea name="ghiChu" rows="2" placeholder="Size, màu sắc, số lượng, yêu cầu đặc biệt..."></textarea>
         </div>
@@ -845,6 +862,66 @@
         document.getElementById('orderForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
       }, 800);
+    }
+
+    // Bấm vào upload zone → mở file picker
+    document.getElementById('uploadZone').addEventListener('click', function(e) {
+      if (!e.target.classList.contains('upload-remove')) {
+        document.getElementById('imageInput').click();
+      }
+    });
+
+    // Chọn file từ máy
+    document.getElementById('imageInput').addEventListener('change', function(e) {
+      if (e.target.files[0]) handleImageFile(e.target.files[0]);
+    });
+
+    // Dán ảnh từ clipboard (Ctrl+V)
+    document.addEventListener('paste', function(e) {
+      var items = (e.clipboardData || window.clipboardData).items;
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') !== -1) {
+          handleImageFile(items[i].getAsFile());
+          break;
+        }
+      }
+    });
+
+    // Kéo thả ảnh
+    var zone = document.getElementById('uploadZone');
+    zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('dragover'); });
+    zone.addEventListener('dragleave', function() { zone.classList.remove('dragover'); });
+    zone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      zone.classList.remove('dragover');
+      if (e.dataTransfer.files[0]) handleImageFile(e.dataTransfer.files[0]);
+    });
+
+    function handleImageFile(file) {
+      if (!file.type.startsWith('image/')) { alert('Vui lòng chọn file ảnh nhé!'); return; }
+      if (file.size > 5 * 1024 * 1024) { alert('Ảnh tối đa 5MB nhé!'); return; }
+      var reader = new FileReader();
+      reader.onload = function(evt) {
+        var dataUrl = evt.target.result;
+        document.getElementById('hiddenImageData').value = dataUrl.split(',')[1];
+        document.getElementById('hiddenImageMime').value = file.type;
+        document.getElementById('previewImg').src = dataUrl;
+        document.getElementById('uploadPrompt').style.display = 'none';
+        document.getElementById('uploadPreview').style.display = 'block';
+        document.getElementById('uploadZone').classList.add('has-image');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeImage(e) {
+      e.stopPropagation();
+      document.getElementById('hiddenImageData').value = '';
+      document.getElementById('hiddenImageMime').value = '';
+      document.getElementById('imageInput').value = '';
+      document.getElementById('previewImg').src = '';
+      document.getElementById('uploadPreview').style.display = 'none';
+      document.getElementById('uploadPrompt').style.display = 'block';
+      document.getElementById('uploadZone').classList.remove('has-image');
     }
   </script>
 </body>
