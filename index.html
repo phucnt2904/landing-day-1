@@ -899,16 +899,32 @@
 
     function handleImageFile(file) {
       if (!file.type.startsWith('image/')) { alert('Vui lòng chọn file ảnh nhé!'); return; }
-      if (file.size > 5 * 1024 * 1024) { alert('Ảnh tối đa 5MB nhé!'); return; }
+      if (file.size > 10 * 1024 * 1024) { alert('Ảnh tối đa 10MB nhé!'); return; }
+
       var reader = new FileReader();
       reader.onload = function(evt) {
-        var dataUrl = evt.target.result;
-        document.getElementById('hiddenImageData').value = dataUrl.split(',')[1];
-        document.getElementById('hiddenImageMime').value = file.type;
-        document.getElementById('previewImg').src = dataUrl;
-        document.getElementById('uploadPrompt').style.display = 'none';
-        document.getElementById('uploadPreview').style.display = 'block';
-        document.getElementById('uploadZone').classList.add('has-image');
+        var img = new Image();
+        img.onload = function() {
+          // Nén ảnh xuống max 900px, JPEG 75% để giảm dung lượng
+          var MAX = 900;
+          var w = img.width, h = img.height;
+          if (w > MAX || h > MAX) {
+            if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
+            else { w = Math.round(w * MAX / h); h = MAX; }
+          }
+          var canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+          var compressed = canvas.toDataURL('image/jpeg', 0.75);
+
+          document.getElementById('hiddenImageData').value = compressed.split(',')[1];
+          document.getElementById('hiddenImageMime').value = 'image/jpeg';
+          document.getElementById('previewImg').src = compressed;
+          document.getElementById('uploadPrompt').style.display = 'none';
+          document.getElementById('uploadPreview').style.display = 'block';
+          document.getElementById('uploadZone').classList.add('has-image');
+        };
+        img.src = evt.target.result;
       };
       reader.readAsDataURL(file);
     }
