@@ -299,6 +299,35 @@
     .cat-name { font-weight: 700; font-size: .92rem; color: var(--text); margin-bottom: 6px; }
     .cat-desc { font-size: .76rem; color: var(--muted); line-height: 1.55; }
 
+    /* ── ORDER FORM ─────────────────────────────────────── */
+    .order-form { max-width: 640px; margin: 0 auto; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-group label { font-size: .87rem; font-weight: 600; color: var(--text); }
+    .form-group input, .form-group textarea {
+      border: 1.5px solid #f0dde2; border-radius: 12px;
+      padding: 13px 16px; font-size: .92rem; font-family: 'Inter', sans-serif;
+      color: var(--text); background: var(--white);
+      transition: border-color .2s, box-shadow .2s; outline: none; resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--rose); box-shadow: 0 0 0 3px rgba(201,112,122,.12);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #c9aeb4; }
+    .btn-submit {
+      width: 100%; background: var(--rose); color: #fff;
+      border: none; border-radius: 50px; padding: 16px;
+      font-size: 1rem; font-weight: 700; cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 20px rgba(201,112,122,.35); margin-top: 8px;
+    }
+    .btn-submit:hover { background: var(--rose-dark); transform: translateY(-2px); }
+    .btn-submit:disabled { background: #deb8bc; cursor: not-allowed; transform: none; box-shadow: none; }
+    .form-success { max-width: 640px; margin: 0 auto; text-align: center; padding: 48px 24px; }
+    .success-icon { font-size: 3rem; margin-bottom: 16px; }
+    .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 12px; }
+    .form-success p { font-size: .97rem; color: var(--muted); line-height: 1.75; }
+
     /* ── FAQ ────────────────────────────────────────────── */
     .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
     .faq-item { background: var(--white); border-radius: 16px; border: 1.5px solid #f0dde2; padding: 22px 26px; }
@@ -316,6 +345,7 @@
     }
     @media (max-width: 768px) {
       .container, .header-inner, .stats-inner, .footer-inner { padding: 0 20px; }
+      .form-row { grid-template-columns: 1fr; }
       .cat-grid { grid-template-columns: repeat(2, 1fr); }
       nav { display: none; }
       .hero-wrap { flex-direction: column; gap: 36px; padding: 48px 0; min-height: auto; }
@@ -351,7 +381,7 @@
         <a href="#quy-trinh">Cách đặt hàng</a>
         <a href="#loi-ich">Tại sao chọn Nomie</a>
         <a href="#faq">FAQ</a>
-        <a href="#khach-hang">Review</a>
+        <a href="#dat-hang">Đặt hàng</a>
       </nav>
       <div class="header-actions">
         <a href="tel:0792204611">📞 0792 204 611</a>
@@ -664,6 +694,47 @@
     </div>
   </section>
 
+  <!-- ORDER FORM -->
+  <section class="section-wrap bg-white" id="dat-hang">
+    <div class="container">
+      <div class="sec-head">
+        <span class="sec-label">Đặt hàng ngay</span>
+        <h2 class="sec-title">Điền Form – Nomie<br>Liên Hệ Lại Trong 15 Phút 💓</h2>
+        <p class="sec-desc">Điền thông tin bên dưới, Nomie sẽ chủ động liên hệ báo giá và xác nhận đơn cho bạn!</p>
+      </div>
+      <form id="orderForm" class="order-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Họ tên *</label>
+            <input type="text" name="hoTen" placeholder="Nguyễn Thị A" required />
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại *</label>
+            <input type="tel" name="soDienThoai" placeholder="0912 345 678" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="email@gmail.com" />
+        </div>
+        <div class="form-group">
+          <label>Sản phẩm muốn order *</label>
+          <textarea name="sanPham" rows="3" placeholder="Mô tả sản phẩm hoặc dán link ảnh vào đây. Ví dụ: váy hoa nhí tay bồng màu hồng, size M..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Ghi chú thêm</label>
+          <textarea name="ghiChu" rows="2" placeholder="Size, màu sắc, số lượng, yêu cầu đặc biệt..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Gửi đơn cho Nomie 💓</button>
+      </form>
+      <div id="formSuccess" class="form-success" style="display:none;">
+        <div class="success-icon">💓</div>
+        <h3>Nomie đã nhận đơn rồi!</h3>
+        <p>Nomie sẽ liên hệ lại qua số điện thoại hoặc nhắn Instagram trong vòng 15 phút. Cảm ơn bạn đã tin tưởng Nomie nhé! 🥰</p>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="section-wrap bg-cream" id="faq">
     <div class="container">
@@ -743,5 +814,30 @@
     </div>
   </footer>
 
+  <script>
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec';
+
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Đang gửi...';
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: new FormData(this),
+        mode: 'no-cors'
+      })
+      .then(function() {
+        document.getElementById('orderForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Gửi đơn cho Nomie 💓';
+        alert('Có lỗi xảy ra! Vui lòng nhắn trực tiếp qua Instagram nhé.');
+      });
+    });
+  </script>
 </body>
 </html>
