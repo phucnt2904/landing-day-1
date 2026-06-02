@@ -328,6 +328,21 @@
     .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--text); margin-bottom: 12px; }
     .form-success p { font-size: .97rem; color: var(--muted); line-height: 1.75; }
 
+    /* ── UPLOAD ZONE ────────────────────────────────────── */
+    .upload-zone {
+      border: 2px dashed #f0dde2; border-radius: 12px;
+      padding: 20px 16px; text-align: center; cursor: pointer;
+      transition: border-color .2s, background .2s; background: #fdf9fa;
+    }
+    .upload-zone:hover, .upload-zone.dragover { border-color: var(--rose); background: var(--blush); }
+    .upload-zone.has-image { border-style: solid; border-color: var(--rose-light); padding: 12px; }
+    .upload-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .upload-text { font-size: .87rem; font-weight: 600; color: var(--rose); }
+    .upload-hint { font-size: .76rem; color: var(--muted); margin-top: 4px; line-height: 1.55; }
+    .upload-preview { display: none; position: relative; display: inline-block; }
+    .upload-preview img { max-height: 160px; max-width: 100%; border-radius: 10px; object-fit: contain; display: block; }
+    .upload-remove { position: absolute; top: -10px; right: -10px; background: var(--rose); color: #fff; border: none; border-radius: 50%; width: 26px; height: 26px; font-size: .75rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+
     /* ── FAQ ────────────────────────────────────────────── */
     .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
     .faq-item { background: var(--white); border-radius: 16px; border: 1.5px solid #f0dde2; padding: 22px 26px; }
@@ -722,6 +737,21 @@
           <textarea name="sanPham" rows="3" placeholder="Mô tả sản phẩm hoặc dán link ảnh vào đây. Ví dụ: váy hoa nhí tay bồng màu hồng, size M..." required></textarea>
         </div>
         <div class="form-group">
+          <label>Ảnh sản phẩm <span style="font-weight:400;color:var(--muted)">(không bắt buộc)</span></label>
+          <input type="file" id="imageInput" accept="image/*" style="display:none">
+          <div class="upload-zone" id="uploadZone">
+            <div id="uploadPrompt">
+              <div class="upload-icon">📎</div>
+              <div class="upload-text">Bấm để chọn ảnh hoặc kéo thả vào đây</div>
+              <div class="upload-hint">Hoặc dán ảnh từ clipboard (Ctrl+V) · PNG, JPG, WEBP · Tối đa 5MB</div>
+            </div>
+            <div class="upload-preview" id="uploadPreview" style="display:none">
+              <img id="previewImg" src="" alt="preview">
+              <button type="button" class="upload-remove" onclick="removeImage(event)">✕</button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <label>Ghi chú thêm</label>
           <textarea name="ghiChu" rows="2" placeholder="Size, màu sắc, số lượng, yêu cầu đặc biệt..."></textarea>
         </div>
@@ -816,18 +846,22 @@
 
   <script>
     var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec';
+    var uploadedImageData = null;
 
+    // Submit form
     document.getElementById('orderForm').addEventListener('submit', function(e) {
       e.preventDefault();
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Đang gửi...';
 
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: new FormData(this),
-        mode: 'no-cors'
-      })
+      var fd = new FormData(this);
+      if (uploadedImageData) {
+        fd.append('imageData', uploadedImageData.base64);
+        fd.append('imageMime', uploadedImageData.mime);
+      }
+
+      fetch(SCRIPT_URL, { method: 'POST', body: fd, mode: 'no-cors' })
       .then(function() {
         document.getElementById('orderForm').style.display = 'none';
         document.getElementById('formSuccess').style.display = 'block';
@@ -838,6 +872,64 @@
         alert('Có lỗi xảy ra! Vui lòng nhắn trực tiếp qua Instagram nhé.');
       });
     });
+
+    // Bấm vào upload zone → mở file picker
+    document.getElementById('uploadZone').addEventListener('click', function(e) {
+      if (!e.target.classList.contains('upload-remove')) {
+        document.getElementById('imageInput').click();
+      }
+    });
+
+    // Chọn file từ máy
+    document.getElementById('imageInput').addEventListener('change', function(e) {
+      if (e.target.files[0]) handleImageFile(e.target.files[0]);
+    });
+
+    // Dán ảnh từ clipboard (Ctrl+V)
+    document.addEventListener('paste', function(e) {
+      var items = (e.clipboardData || window.clipboardData).items;
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') !== -1) {
+          handleImageFile(items[i].getAsFile());
+          break;
+        }
+      }
+    });
+
+    // Kéo thả ảnh
+    var zone = document.getElementById('uploadZone');
+    zone.addEventListener('dragover', function(e) { e.preventDefault(); this.classList.add('dragover'); });
+    zone.addEventListener('dragleave', function() { this.classList.remove('dragover'); });
+    zone.addEventListener('drop', function(e) {
+      e.preventDefault();
+      this.classList.remove('dragover');
+      if (e.dataTransfer.files[0]) handleImageFile(e.dataTransfer.files[0]);
+    });
+
+    function handleImageFile(file) {
+      if (!file.type.startsWith('image/')) { alert('Vui lòng chọn file ảnh nhé!'); return; }
+      if (file.size > 5 * 1024 * 1024) { alert('Ảnh tối đa 5MB nhé!'); return; }
+      var reader = new FileReader();
+      reader.onload = function(evt) {
+        var dataUrl = evt.target.result;
+        uploadedImageData = { base64: dataUrl.split(',')[1], mime: file.type };
+        document.getElementById('previewImg').src = dataUrl;
+        document.getElementById('uploadPrompt').style.display = 'none';
+        document.getElementById('uploadPreview').style.display = 'block';
+        document.getElementById('uploadZone').classList.add('has-image');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function removeImage(e) {
+      e.stopPropagation();
+      uploadedImageData = null;
+      document.getElementById('imageInput').value = '';
+      document.getElementById('previewImg').src = '';
+      document.getElementById('uploadPreview').style.display = 'none';
+      document.getElementById('uploadPrompt').style.display = 'block';
+      document.getElementById('uploadZone').classList.remove('has-image');
+    }
   </script>
 </body>
 </html>
