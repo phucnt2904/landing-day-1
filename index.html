@@ -370,12 +370,12 @@
     .float-btn.chat-btn:hover { background: #e0436f; }
 
     @keyframes float-shake {
-      0%, 85%, 100% { transform: rotate(0); }
-      87% { transform: rotate(-12deg); }
-      89% { transform: rotate(10deg); }
-      91% { transform: rotate(-8deg); }
-      93% { transform: rotate(6deg); }
-      95% { transform: rotate(0); }
+      0%, 85%, 100% { transform: rotate(0); box-shadow: 0 4px 18px rgba(0,0,0,.22); }
+      87% { transform: rotate(-24deg); box-shadow: 0 4px 18px rgba(0,0,0,.22), 0 0 18px 6px rgba(255,93,143,.55); }
+      89% { transform: rotate(20deg); box-shadow: 0 4px 18px rgba(0,0,0,.22), 0 0 18px 6px rgba(255,93,143,.55); }
+      91% { transform: rotate(-16deg); box-shadow: 0 4px 18px rgba(0,0,0,.22), 0 0 18px 6px rgba(255,93,143,.55); }
+      93% { transform: rotate(12deg); box-shadow: 0 4px 18px rgba(0,0,0,.22), 0 0 14px 4px rgba(255,93,143,.4); }
+      95% { transform: rotate(0); box-shadow: 0 4px 18px rgba(0,0,0,.22); }
     }
     .float-btn.ig, .float-btn.chat-btn { animation: float-shake 4.5s ease-in-out infinite; }
     .float-btn.chat-btn { animation-delay: .4s; }
