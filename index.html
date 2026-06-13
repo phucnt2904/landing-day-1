@@ -366,8 +366,20 @@
     .float-btn svg { width: 27px; height: 27px; fill: #fff; }
     .float-btn::before { content: attr(data-tip); position: absolute; right: 62px; background: rgba(20,10,12,.78); color: #fff; font-size: .73rem; font-weight: 600; padding: 5px 11px; border-radius: 7px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .18s; font-family: 'Inter', sans-serif; }
     .float-btn:hover::before { opacity: 1; }
-    .float-btn.chat-btn { background: var(--gold); border: none; cursor: pointer; }
-    .float-btn.chat-btn:hover { background: #b08f64; }
+    .float-btn.chat-btn { background: #ff5d8f; border: none; cursor: pointer; }
+    .float-btn.chat-btn:hover { background: #e0436f; }
+
+    @keyframes float-shake {
+      0%, 85%, 100% { transform: rotate(0); }
+      87% { transform: rotate(-12deg); }
+      89% { transform: rotate(10deg); }
+      91% { transform: rotate(-8deg); }
+      93% { transform: rotate(6deg); }
+      95% { transform: rotate(0); }
+    }
+    .float-btn.ig, .float-btn.chat-btn { animation: float-shake 4.5s ease-in-out infinite; }
+    .float-btn.chat-btn { animation-delay: .4s; }
+    .float-btn:hover { animation-play-state: paused; }
     .float-btn.chat-btn .icon-close { display: none; }
     .float-btn.chat-btn.open .icon-chat { display: none; }
     .float-btn.chat-btn.open .icon-close { display: block; }
@@ -405,8 +417,8 @@
     .chat-quick-btn:hover { background: var(--rose); color: #fff; }
     .chat-quick-btn.primary { background: var(--rose); color: #fff; border-color: var(--rose); }
     .chat-quick-btn.primary:hover { background: var(--rose-dark); }
-    .chat-quick-btn.ig { background: var(--gold); color: #fff; border-color: var(--gold); }
-    .chat-quick-btn.ig:hover { background: #b08f64; }
+    .chat-quick-btn.ig { background: #ff5d8f; color: #fff; border-color: #ff5d8f; }
+    .chat-quick-btn.ig:hover { background: #e0436f; }
 
     /* ── SURVEY COLLAPSE ────────────────────── */
     .survey-toggle {
@@ -931,7 +943,7 @@
     (function () {
       var IG_LINK = "https://ig.me/m/nomie.order";
       var GREETING = "Dạ Nomie xin chào, bạn đang cần tư vấn hoặc ngắm món nào để Nomie hỗ trợ nha 🌸";
-      var CLOSING = "Dạ nếu bạn ưng món này thì mình chốt đơn để Nomie lên đơn sớm nha, chỉ cần cọc 30-50% là được ạ 💕<br><br>Bạn để lại thông tin giúp Nomie ở form bên dưới nha, Nomie sẽ ưu tiên liên hệ lại cho bạn trước!<br><a href=\"#khao-sat\" class=\"chat-cta-btn\" onclick=\"expandSurveyForm()\">Để lại thông tin cho Nomie</a><br><br>Hoặc nhắn trực tiếp cho Nomie qua Instagram cũng được nha 📩<br><a href=\"" + IG_LINK + "\" target=\"_blank\" class=\"chat-cta-btn\" style=\"background: var(--gold)\">Nhắn Instagram cho Nomie</a>";
+      var CLOSING = "Dạ nếu bạn ưng món này thì mình chốt đơn để Nomie lên đơn sớm nha, chỉ cần cọc 30-50% là được ạ 💕<br><br>Bạn để lại thông tin giúp Nomie ở form bên dưới nha, Nomie sẽ ưu tiên liên hệ lại cho bạn trước!<br><a href=\"#khao-sat\" class=\"chat-cta-btn\" onclick=\"expandSurveyForm()\">Để lại thông tin cho Nomie</a><br><br>Hoặc nhắn trực tiếp cho Nomie qua Instagram cũng được nha 📩<br><a href=\"" + IG_LINK + "\" target=\"_blank\" class=\"chat-cta-btn\" style=\"background: #ff5d8f\">Nhắn Instagram cho Nomie</a>";
 
       var FAQ = [
         { q: "Cọc bao nhiêu %?", a: "Dạ cọc giúp shop khoảng 30-50% tùy giá trị đơn nha, phần còn lại mình thanh toán khi nhận hàng ạ. Cọc xong là Nomie lên đơn và theo dõi tới khi hàng về tay bạn nha" },
