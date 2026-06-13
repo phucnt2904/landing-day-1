@@ -366,8 +366,8 @@
     .float-btn svg { width: 27px; height: 27px; fill: #fff; }
     .float-btn::before { content: attr(data-tip); position: absolute; right: 62px; background: rgba(20,10,12,.78); color: #fff; font-size: .73rem; font-weight: 600; padding: 5px 11px; border-radius: 7px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .18s; font-family: 'Inter', sans-serif; }
     .float-btn:hover::before { opacity: 1; }
-    .float-btn.chat-btn { background: var(--rose); border: none; cursor: pointer; }
-    .float-btn.chat-btn:hover { background: var(--rose-dark); }
+    .float-btn.chat-btn { background: var(--gold); border: none; cursor: pointer; }
+    .float-btn.chat-btn:hover { background: #b08f64; }
     .float-btn.chat-btn .icon-close { display: none; }
     .float-btn.chat-btn.open .icon-chat { display: none; }
     .float-btn.chat-btn.open .icon-close { display: block; }
@@ -401,10 +401,12 @@
     .chat-msg.user { background: var(--rose); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
     .chat-msg a.chat-cta-btn { display: inline-block; margin-top: 10px; background: var(--rose-dark); color: #fff; text-decoration: none; font-size: .8rem; font-weight: 700; padding: 9px 18px; border-radius: 50px; }
     .chat-quick { flex-shrink: 0; padding: 10px 12px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 6px; max-height: 150px; overflow-y: auto; background: #fff; }
-    .chat-quick-btn { background: var(--blush); color: var(--rose-dark); border: 1px solid var(--rose-pale); font-size: .77rem; font-weight: 600; padding: 7px 12px; border-radius: 50px; cursor: pointer; transition: background .2s, color .2s; }
+    .chat-quick-btn { background: var(--blush); color: var(--rose-dark); border: 1px solid var(--rose-pale); font-size: .77rem; font-weight: 600; padding: 7px 12px; border-radius: 50px; cursor: pointer; transition: background .2s, color .2s; text-decoration: none; display: inline-block; }
     .chat-quick-btn:hover { background: var(--rose); color: #fff; }
     .chat-quick-btn.primary { background: var(--rose); color: #fff; border-color: var(--rose); }
     .chat-quick-btn.primary:hover { background: var(--rose-dark); }
+    .chat-quick-btn.ig { background: var(--gold); color: #fff; border-color: var(--gold); }
+    .chat-quick-btn.ig:hover { background: #b08f64; }
 
     /* ── SURVEY COLLAPSE ────────────────────── */
     .survey-toggle {
@@ -865,13 +867,13 @@
 
   <!-- FLOAT BUTTONS -->
   <div class="float-btns">
-    <a href="https://ig.me/m/nomie.order" target="_blank" class="float-btn ig" data-tip="Nhắn Instagram">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </a>
     <button class="float-btn chat-btn" id="chatToggle" data-tip="Chat với Nomie" aria-label="Chat với Nomie">
       <svg class="icon-chat" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 5.99 2 10.9c0 2.59 1.31 4.91 3.39 6.5-.06.71-.37 2.27-1.31 4.03-.13.25.08.54.36.49 2.18-.4 3.79-1.27 4.6-1.79.93.27 1.92.42 2.96.42 5.523 0 10-3.99 10-8.9C22 5.99 17.523 2 12 2z"/></svg>
       <svg class="icon-close" viewBox="0 0 24 24"><path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12 5.7 16.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.89a1 1 0 0 0 1.41-1.41L13.41 12l4.89-4.89a1 1 0 0 0 0-1.4z"/></svg>
     </button>
+    <a href="https://ig.me/m/nomie.order" target="_blank" class="float-btn ig" data-tip="Nhắn Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
   </div>
 
   <!-- CHATBOT WIDGET -->
@@ -927,8 +929,9 @@
 
     /* ── CHATBOT NOMIE ───────────────────────── */
     (function () {
+      var IG_LINK = "https://ig.me/m/nomie.order";
       var GREETING = "Dạ Nomie xin chào, bạn đang cần tư vấn hoặc ngắm món nào để Nomie hỗ trợ nha 🌸";
-      var CLOSING = "Dạ nếu bạn ưng món này thì mình chốt đơn để Nomie lên đơn sớm nha, chỉ cần cọc 30-50% là được ạ 💕<br><br>Bạn để lại thông tin giúp Nomie ở form bên dưới nha, Nomie sẽ ưu tiên liên hệ lại cho bạn trước!<br><a href=\"#khao-sat\" class=\"chat-cta-btn\" onclick=\"expandSurveyForm()\">Để lại thông tin cho Nomie</a>";
+      var CLOSING = "Dạ nếu bạn ưng món này thì mình chốt đơn để Nomie lên đơn sớm nha, chỉ cần cọc 30-50% là được ạ 💕<br><br>Bạn để lại thông tin giúp Nomie ở form bên dưới nha, Nomie sẽ ưu tiên liên hệ lại cho bạn trước!<br><a href=\"#khao-sat\" class=\"chat-cta-btn\" onclick=\"expandSurveyForm()\">Để lại thông tin cho Nomie</a><br><br>Hoặc nhắn trực tiếp cho Nomie qua Instagram cũng được nha 📩<br><a href=\"" + IG_LINK + "\" target=\"_blank\" class=\"chat-cta-btn\" style=\"background: var(--gold)\">Nhắn Instagram cho Nomie</a>";
 
       var FAQ = [
         { q: "Cọc bao nhiêu %?", a: "Dạ cọc giúp shop khoảng 30-50% tùy giá trị đơn nha, phần còn lại mình thanh toán khi nhận hàng ạ. Cọc xong là Nomie lên đơn và theo dõi tới khi hàng về tay bạn nha" },
@@ -972,6 +975,13 @@
         orderBtn.textContent = 'Mình muốn đặt hàng 💕';
         orderBtn.onclick = wantToOrder;
         quick.appendChild(orderBtn);
+
+        var igBtn = document.createElement('a');
+        igBtn.className = 'chat-quick-btn ig';
+        igBtn.href = IG_LINK;
+        igBtn.target = '_blank';
+        igBtn.textContent = 'Nhắn Instagram cho Nomie 📩';
+        quick.appendChild(igBtn);
       }
 
       function askFaq(i) {
