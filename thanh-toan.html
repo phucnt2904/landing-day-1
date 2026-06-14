@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thanh toán cho Nomie 💓</title>
+  <title>Đặt hàng & Thanh toán - Nomie 💓</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -77,6 +77,42 @@
     }
     .sec-desc { font-size: .95rem; color: var(--muted); max-width: 460px; margin: 0 auto; line-height: 1.72; }
 
+    /* ── FORM ───────────────────────────────── */
+    .order-form { max-width: 600px; margin: 0 auto; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+    .form-group label { font-size: .86rem; font-weight: 600; color: var(--text); }
+    .form-group input, .form-group textarea {
+      border: 1.5px solid var(--border); border-radius: 12px;
+      padding: 12px 15px; font-size: .9rem; font-family: 'Inter', sans-serif;
+      color: var(--text); background: #fff; outline: none; resize: vertical;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--rose); box-shadow: 0 0 0 3px rgba(201,112,122,.1);
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: #c9aeb4; }
+    .btn-submit {
+      width: 100%; background: var(--rose); color: #fff; border: none;
+      border-radius: 50px; padding: 15px; font-size: .97rem; font-weight: 700;
+      cursor: pointer; margin-top: 6px;
+      box-shadow: 0 6px 20px rgba(201,112,122,.35);
+      transition: background .2s, transform .2s;
+    }
+    .btn-submit:hover { background: var(--rose-dark); transform: translateY(-2px); }
+    .form-success { max-width: 600px; margin: 0 auto; text-align: center; padding: 48px 24px; }
+    .success-icon { font-size: 3rem; margin-bottom: 16px; }
+    .form-success h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem; color: var(--text); margin-bottom: 12px;
+    }
+    .form-success p { font-size: .95rem; color: var(--muted); line-height: 1.75; }
+
+    .divider {
+      border: none; border-top: 1.5px dashed var(--rose-pale);
+      margin: 44px 0;
+    }
+
     /* ── PAYMENT (SEPAY QR) ─────────────────── */
     .payment-grid { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
     .payment-qr {
@@ -114,6 +150,7 @@
     @media (max-width: 540px) {
       .card { padding: 36px 22px; }
       .payment-grid { flex-direction: column; }
+      .form-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -129,6 +166,54 @@
 
   <div class="wrap">
     <div class="card">
+      <div class="sec-head">
+        <span class="script-label">Đặt hàng ngay</span>
+        <h2 class="sec-title">Điền Form –<br>Nomie Liên Hệ Lại Ngay 💓</h2>
+        <p class="sec-desc">Điền thông tin bên dưới, Nomie sẽ chủ động liên hệ báo giá và xác nhận đơn cho bạn!</p>
+      </div>
+      <form id="orderForm" class="order-form"
+            action="https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec"
+            method="post"
+            target="hidden_iframe">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Họ tên *</label>
+            <input type="text" name="hoTen" placeholder="Nguyễn Thị A" required />
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại *</label>
+            <input type="tel" name="soDienThoai" placeholder="0912 345 678" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="email@gmail.com" />
+          </div>
+          <div class="form-group">
+            <label>Instagram <span style="font-weight:400;color:var(--muted)">(để Nomie nhắn lại)</span></label>
+            <input type="text" name="instagram" placeholder="@username" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Sản phẩm muốn order *</label>
+          <textarea name="sanPham" rows="3" placeholder="Mô tả chi tiết sản phẩm. Sau khi gửi form bạn có thể gửi ảnh qua Instagram cho Nomie nhé!" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Ghi chú thêm</label>
+          <textarea name="ghiChu" rows="2" placeholder="Size, màu sắc, số lượng, yêu cầu đặc biệt..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" onclick="showSuccess()">Gửi đơn cho Nomie 💓</button>
+      </form>
+      <iframe name="hidden_iframe" style="display:none"></iframe>
+      <div id="formSuccess" class="form-success" style="display:none;">
+        <div class="success-icon">💓</div>
+        <h3>Nomie đã nhận đơn rồi!</h3>
+        <p>Nomie sẽ liên hệ lại qua số điện thoại hoặc nhắn Instagram trong vòng 15 phút. Cảm ơn bạn đã tin tưởng Nomie nhé! 🥰</p>
+      </div>
+
+      <hr class="divider" />
+
       <div class="sec-head">
         <span class="script-label">Cọc / Thanh toán cho Nomie</span>
         <h2 class="sec-title">Quét Mã Là<br>Chuyển Liền 💓</h2>
@@ -156,6 +241,15 @@
   </div>
 
   <footer>© Nomie — Order hộ Taobao ✦</footer>
+
+  <script>
+    function showSuccess() {
+      setTimeout(function() {
+        document.getElementById('orderForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      }, 800);
+    }
+  </script>
 
 </body>
 </html>

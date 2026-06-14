@@ -15,10 +15,8 @@
       --rose-pale:  #f8d8de;
       --blush:      #fde8ec;
       --cream:      #fdf6f8;
-      --gold:       #c8a882;
       --text:       #3a2a2e;
       --muted:      #9a7e84;
-      --white:      #ffffff;
       --border:     #f0d8de;
     }
 
@@ -242,47 +240,6 @@
     .r-name { font-weight: 700; font-size: .86rem; }
     .r-role { font-size: .76rem; color: var(--muted); margin-top: 2px; }
 
-    /* ── FORM ───────────────────────────────── */
-    .order-form { max-width: 600px; margin: 0 auto; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
-    .form-group label { font-size: .86rem; font-weight: 600; color: var(--text); }
-    .form-group input, .form-group textarea {
-      border: 1.5px solid var(--border); border-radius: 12px;
-      padding: 12px 15px; font-size: .9rem; font-family: 'Inter', sans-serif;
-      color: var(--text); background: #fff; outline: none; resize: vertical;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .form-group input:focus, .form-group textarea:focus {
-      border-color: var(--rose); box-shadow: 0 0 0 3px rgba(201,112,122,.1);
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: #c9aeb4; }
-    .btn-submit {
-      width: 100%; background: var(--rose); color: #fff; border: none;
-      border-radius: 50px; padding: 15px; font-size: .97rem; font-weight: 700;
-      cursor: pointer; margin-top: 6px;
-      box-shadow: 0 6px 20px rgba(201,112,122,.35);
-      transition: background .2s, transform .2s;
-    }
-    .btn-submit:hover { background: var(--rose-dark); transform: translateY(-2px); }
-    .form-success { max-width: 600px; margin: 0 auto; text-align: center; padding: 48px 24px; }
-    .success-icon { font-size: 3rem; margin-bottom: 16px; }
-    .form-success h3 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.2rem; color: var(--text); margin-bottom: 12px;
-    }
-    .form-success p { font-size: .95rem; color: var(--muted); line-height: 1.75; }
-
-    .survey-options { display: flex; flex-direction: column; gap: 9px; }
-    .opt-radio, .opt-check {
-      display: flex; align-items: center; gap: 10px;
-      font-size: .88rem; color: var(--text); cursor: pointer;
-      background: #fff; border: 1.5px solid var(--border); border-radius: 12px;
-      padding: 11px 16px; transition: border-color .2s, background .2s;
-    }
-    .opt-radio:hover, .opt-check:hover { border-color: var(--rose-light); background: var(--blush); }
-    .opt-radio input, .opt-check input { accent-color: var(--rose); width: 17px; height: 17px; flex-shrink: 0; }
-
     /* ── FAQ ────────────────────────────────── */
     .faq-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
     .faq-item { background: var(--cream); border-radius: 16px; border: 1.5px solid var(--border); padding: 22px 26px; }
@@ -420,20 +377,6 @@
     .chat-quick-btn.ig { background: #ff5d8f; color: #fff; border-color: #ff5d8f; }
     .chat-quick-btn.ig:hover { background: #e0436f; }
 
-    /* ── SURVEY COLLAPSE ────────────────────── */
-    .survey-toggle {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; background: var(--blush); color: var(--rose-dark);
-      border: 1.5px dashed var(--rose-light); border-radius: 50px;
-      padding: 12px 16px; font-size: .86rem; font-weight: 700; cursor: pointer;
-      margin-bottom: 16px; transition: background .2s, color .2s;
-    }
-    .survey-toggle:hover { background: var(--rose); color: #fff; }
-    .survey-toggle .toggle-arr { transition: transform .25s; font-size: .8rem; }
-    .survey-toggle.open .toggle-arr { transform: rotate(180deg); }
-    .survey-collapse { overflow: hidden; max-height: 0; transition: max-height .45s ease; }
-    .survey-collapse.open { max-height: 2400px; }
-
     @media (max-width: 480px) {
       .chat-window { right: 10px; left: 10px; width: auto; bottom: 86px; }
     }
@@ -454,7 +397,6 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .review-grid  { grid-template-columns: 1fr; }
       .steps        { grid-template-columns: 1fr 1fr; }
-      .form-row     { grid-template-columns: 1fr; }
       .cta-card     { padding: 48px 24px; }
       .stats-strip  { padding: 22px 24px; }
       footer        { padding: 28px 22px; }
@@ -478,9 +420,8 @@
       <nav>
         <a href="#quy-trinh">Cách đặt hàng</a>
         <a href="#faq">FAQ</a>
-        <a href="#dat-hang">Đặt hàng</a>
-        <a href="thanh-toan.html" target="_blank">Thanh toán</a>
-        <a href="#khao-sat">Khảo sát</a>
+        <a href="thanh-toan.html" target="_blank">Đặt hàng</a>
+        <a href="khao-sat.html" target="_blank">Khảo sát</a>
       </nav>
       <a href="https://www.instagram.com/nomie.order" target="_blank" class="btn-nav">Nhắn Nomie 💓</a>
     </div>
@@ -648,55 +589,6 @@
       </div>
     </div>
 
-    <!-- ORDER FORM -->
-    <div class="card soft" id="dat-hang">
-      <div class="sec-head">
-        <span class="script-label">Đặt hàng ngay</span>
-        <h2 class="sec-title">Điền Form –<br>Nomie Liên Hệ Lại Ngay 💓</h2>
-        <p class="sec-desc">Điền thông tin bên dưới, Nomie sẽ chủ động liên hệ báo giá và xác nhận đơn cho bạn!</p>
-      </div>
-      <form id="orderForm" class="order-form"
-            action="https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec"
-            method="post"
-            target="hidden_iframe">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Họ tên *</label>
-            <input type="text" name="hoTen" placeholder="Nguyễn Thị A" required />
-          </div>
-          <div class="form-group">
-            <label>Số điện thoại *</label>
-            <input type="tel" name="soDienThoai" placeholder="0912 345 678" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="email@gmail.com" />
-          </div>
-          <div class="form-group">
-            <label>Instagram <span style="font-weight:400;color:var(--muted)">(để Nomie nhắn lại)</span></label>
-            <input type="text" name="instagram" placeholder="@username" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Sản phẩm muốn order *</label>
-          <textarea name="sanPham" rows="3" placeholder="Mô tả chi tiết sản phẩm. Sau khi gửi form bạn có thể gửi ảnh qua Instagram cho Nomie nhé!" required></textarea>
-        </div>
-        <div class="form-group">
-          <label>Ghi chú thêm</label>
-          <textarea name="ghiChu" rows="2" placeholder="Size, màu sắc, số lượng, yêu cầu đặc biệt..."></textarea>
-        </div>
-        <button type="submit" class="btn-submit" onclick="showSuccess()">Gửi đơn cho Nomie 💓</button>
-      </form>
-      <iframe name="hidden_iframe" style="display:none"></iframe>
-      <div id="formSuccess" class="form-success" style="display:none;">
-        <div class="success-icon">💓</div>
-        <h3>Nomie đã nhận đơn rồi!</h3>
-        <p>Nomie sẽ liên hệ lại qua số điện thoại hoặc nhắn Instagram trong vòng 15 phút. Cảm ơn bạn đã tin tưởng Nomie nhé! 🥰</p>
-      </div>
-    </div>
-
     <!-- FAQ -->
     <div class="card" id="faq">
       <div class="sec-head">
@@ -734,109 +626,6 @@
           <button onclick="document.getElementById('qrModal').classList.add('active')" class="btn-cta-outline">💬 Nhắn Zalo</button>
         </div>
         <p class="cta-note">⚡ Nomie rep nhanh · Cọc 50% an tâm · <a href="tel:0792204611" style="color:rgba(255,255,255,.75);text-decoration:none;">📞 079.220.4611</a></p>
-      </div>
-    </div>
-
-    <!-- EARLY ACCESS + SURVEY -->
-    <div class="card soft" id="khao-sat">
-      <div class="sec-head">
-        <span class="script-label">Đăng ký nhận sớm</span>
-        <h2 class="sec-title">Khảo Sát Nhu Cầu 💌</h2>
-        <p class="sec-desc">Để lại thông tin và chia sẻ vài điều nho nhỏ — Nomie sẽ ưu tiên nhắn bạn trước khi có gì mới nhé!</p>
-      </div>
-      <form id="surveyForm" class="order-form"
-            action="https://script.google.com/macros/s/AKfycbze5zmdQ3C5pDyKGIP0YyYIKGWuAzep_5qsAwokxDrU63CInB-Ry_iGKuxJEHgzRTJrBg/exec"
-            method="post"
-            target="hidden_iframe_survey"
-            onsubmit="prepSurveySubmit()">
-        <input type="hidden" name="formType" value="khao_sat" />
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Bạn tên gì để shop tiện xưng hô nha? 💕</label>
-            <input type="text" name="khaoSatTen" placeholder="" />
-          </div>
-          <div class="form-group">
-            <label>Số điện thoại/Zalo của bạn?</label>
-            <input type="tel" name="khaoSatSdtZalo" placeholder="vd: 09x xxx xxxx" />
-          </div>
-        </div>
-        <button type="button" class="survey-toggle" id="surveyToggle" onclick="toggleSurveyForm()">
-          <span>Xem thêm vài câu nho nhỏ nữa nha</span><span class="toggle-arr">⌄</span>
-        </button>
-
-        <div class="survey-collapse" id="surveyCollapse">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Instagram của bạn? *</label>
-            <input type="text" name="khaoSatInstagram" placeholder="vd: nomie.order" required />
-          </div>
-          <div class="form-group">
-            <label>Email của bạn? *</label>
-            <input type="email" name="khaoSatEmail" placeholder="vd: nomie@gmail.com" required />
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Bạn đã từng order hàng Taobao qua trung gian/shop order hộ chưa?</label>
-          <div class="survey-options">
-            <label class="opt-radio"><input type="radio" name="khaoSatDaTungOrder" value="Chưa từng" /> Chưa từng</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatDaTungOrder" value="Đã từng, nhưng không hài lòng" /> Đã từng, nhưng không hài lòng</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatDaTungOrder" value="Đã từng và khá ổn" /> Đã từng và khá ổn</label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Bạn biết đến Nomie qua đâu?</label>
-          <div class="survey-options">
-            <label class="opt-radio"><input type="radio" name="khaoSatBietQua" value="Instagram" /> Instagram</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatBietQua" value="Bạn bè giới thiệu" /> Bạn bè giới thiệu</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatBietQua" value="TikTok" /> TikTok</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatBietQua" value="Khác" /> Khác</label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Bạn quan tâm nhất loại sản phẩm nào?</label>
-          <div class="survey-options">
-            <label class="opt-radio"><input type="radio" name="khaoSatSanPham" value="Quần áo" /> Quần áo</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatSanPham" value="Giày dép" /> Giày dép</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatSanPham" value="Phụ kiện (túi, trang sức, mũ...)" /> Phụ kiện (túi, trang sức, mũ...)</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatSanPham" value="Tất cả luôn 🤩" /> Tất cả luôn 🤩</label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Điều gì đang cản bước bạn khi order hàng từ Taobao?</label>
-          <div class="survey-options">
-            <label class="opt-check"><input type="checkbox" class="canTroChk" value="Phí dịch vụ cao" /> Phí dịch vụ cao</label>
-            <label class="opt-check"><input type="checkbox" class="canTroChk" value="Ship chờ lâu" /> Ship chờ lâu</label>
-            <label class="opt-check"><input type="checkbox" class="canTroChk" value="Không tìm được cái mình cần" /> Không tìm được cái mình cần</label>
-            <label class="opt-check"><input type="checkbox" class="canTroChk" value="Lo về size, form,..." /> Lo về size, form,...</label>
-            <label class="opt-check"><input type="checkbox" class="canTroChk" value="Sợ hàng thật khác với hình" /> Sợ hàng thật khác với hình</label>
-            <label class="opt-check"><input type="checkbox" class="canTroChk" value="Không biết tiếng Trung" /> Không biết tiếng Trung</label>
-          </div>
-          <input type="hidden" name="khaoSatCanTro" id="khaoSatCanTro" />
-        </div>
-
-        <div class="form-group">
-          <label>Mức giá bạn thường chi cho 1 món đồ là khoảng bao nhiêu?</label>
-          <div class="survey-options">
-            <label class="opt-radio"><input type="radio" name="khaoSatMucGia" value="Dưới 200k" /> Dưới 200k</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatMucGia" value="200k - 500k" /> 200k - 500k</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatMucGia" value="500k - 1 triệu" /> 500k - 1 triệu</label>
-            <label class="opt-radio"><input type="radio" name="khaoSatMucGia" value="Trên 1 triệu" /> Trên 1 triệu</label>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-submit" onclick="showSurveySuccess()">Gửi cho Nomie 💕</button>
-        </div>
-      </form>
-      <iframe name="hidden_iframe_survey" style="display:none"></iframe>
-      <div id="surveyFormSuccess" class="form-success" style="display:none;">
-        <div class="success-icon">💕</div>
-        <h3>Cảm ơn bạn!</h3>
-        <p>Nomie đã nhận được thông tin của bạn rồi. Cảm ơn bạn đã dành thời gian chia sẻ nhé! 🥰</p>
       </div>
     </div>
 
@@ -906,45 +695,11 @@
   </div>
 
   <script>
-    function showSuccess() {
-      setTimeout(function() {
-        document.getElementById('orderForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 800);
-    }
-
-    function prepSurveySubmit() {
-      var checked = document.querySelectorAll('#surveyForm .canTroChk:checked');
-      var labels = [];
-      checked.forEach(function(cb) { labels.push(cb.value); });
-      document.getElementById('khaoSatCanTro').value = labels.join(', ');
-    }
-
-    function showSurveySuccess() {
-      setTimeout(function() {
-        document.getElementById('surveyForm').style.display = 'none';
-        document.getElementById('surveyFormSuccess').style.display = 'block';
-      }, 800);
-    }
-
-    /* ── SURVEY COLLAPSE ─────────────────────── */
-    function toggleSurveyForm() {
-      document.getElementById('surveyCollapse').classList.toggle('open');
-      document.getElementById('surveyToggle').classList.toggle('open');
-    }
-    function expandSurveyForm() {
-      document.getElementById('surveyCollapse').classList.add('open');
-      document.getElementById('surveyToggle').classList.add('open');
-      setTimeout(function () {
-        document.getElementById('khao-sat').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    }
-
     /* ── CHATBOT NOMIE ───────────────────────── */
     (function () {
       var IG_LINK = "https://ig.me/m/nomie.order";
       var GREETING = "Dạ Nomie xin chào, bạn đang cần tư vấn hoặc ngắm món nào để Nomie hỗ trợ nha 🌸";
-      var CLOSING = "Dạ nếu bạn ưng món này thì mình chốt đơn để Nomie lên đơn sớm nha, chỉ cần cọc 30-50% là được ạ 💕<br><br>Bạn để lại thông tin giúp Nomie ở form bên dưới nha, Nomie sẽ ưu tiên liên hệ lại cho bạn trước!<br><a href=\"#khao-sat\" class=\"chat-cta-btn\" onclick=\"expandSurveyForm()\">Để lại thông tin cho Nomie</a><br><br>Hoặc nhắn trực tiếp cho Nomie qua Instagram cũng được nha 📩<br><a href=\"" + IG_LINK + "\" target=\"_blank\" class=\"chat-cta-btn\" style=\"background: #ff5d8f\">Nhắn Instagram cho Nomie</a>";
+      var CLOSING = "Dạ nếu bạn ưng món này thì mình chốt đơn để Nomie lên đơn sớm nha, chỉ cần cọc 30-50% là được ạ 💕<br><br>Bạn điền giúp Nomie thông tin ở form đặt hàng nha, Nomie sẽ ưu tiên liên hệ lại cho bạn trước!<br><a href=\"thanh-toan.html\" target=\"_blank\" class=\"chat-cta-btn\">Đặt hàng & thanh toán cho Nomie</a><br><br>Hoặc nhắn trực tiếp cho Nomie qua Instagram cũng được nha 📩<br><a href=\"" + IG_LINK + "\" target=\"_blank\" class=\"chat-cta-btn\" style=\"background: #ff5d8f\">Nhắn Instagram cho Nomie</a>";
 
       var FAQ = [
         { q: "Cọc bao nhiêu %?", a: "Dạ cọc giúp shop khoảng 30-50% tùy giá trị đơn nha, phần còn lại mình thanh toán khi nhận hàng ạ. Cọc xong là Nomie lên đơn và theo dõi tới khi hàng về tay bạn nha" },
