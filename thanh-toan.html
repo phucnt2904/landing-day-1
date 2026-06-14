@@ -43,7 +43,7 @@
       height: 64px; padding: 0 24px;
     }
     .header-inner {
-      max-width: 1160px; margin: 0 auto;
+      max-width: 1160px; margin: 0 auto; position: relative;
       height: 100%; display: flex; align-items: center; justify-content: space-between;
     }
     .logo {
@@ -62,6 +62,15 @@
       transition: background .2s, transform .15s;
     }
     .btn-nav:hover { background: var(--rose-dark); transform: translateY(-1px); }
+    .btn-nav-mobile { display: none; }
+    .menu-toggle {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 36px; height: 36px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; flex-shrink: 0;
+    }
+    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--rose); border-radius: 2px; transition: transform .25s, opacity .25s; }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ── CONTAINER ──────────────────────────── */
     .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px; flex: 1; }
@@ -239,7 +248,22 @@
     }
 
     @media (max-width: 768px) {
-      nav { display: none; }
+      .menu-toggle { display: flex; }
+      .btn-nav { display: none; }
+      nav {
+        position: absolute; top: 64px; left: 0; right: 0;
+        flex-direction: column; gap: 0; max-height: 0; overflow: hidden;
+        background: rgba(253,228,234,.97); backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--rose-pale);
+        padding: 0 24px; transition: max-height .35s ease;
+      }
+      nav.open { max-height: 320px; padding: 8px 24px 16px; }
+      nav a { padding: 12px 0; border-bottom: 1px solid var(--rose-pale); }
+      .btn-nav-mobile {
+        display: block; text-align: center; margin-top: 12px;
+        background: var(--rose); color: #fff; padding: 10px; border-radius: 50px;
+        font-size: .85rem; font-weight: 600; text-decoration: none;
+      }
     }
 
     @media (max-width: 540px) {
@@ -258,13 +282,15 @@
         <a href="index.html" class="logo">Nomie</a>
         <span style="font-size:.7rem;font-weight:600;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase;padding-left:2px">Order hộ Taobao ✦</span>
       </div>
-      <nav>
+      <nav id="navMenu">
         <a href="index.html#quy-trinh">Cách đặt hàng</a>
         <a href="index.html#faq">FAQ</a>
         <a href="thanh-toan.html">Đặt hàng</a>
         <a href="khao-sat.html" target="_blank">Khảo sát</a>
+        <a href="https://www.instagram.com/nomie.order" target="_blank" class="btn-nav-mobile">Nhắn Nomie 💓</a>
       </nav>
       <a href="https://www.instagram.com/nomie.order" target="_blank" class="btn-nav">Nhắn Nomie 💓</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -488,6 +514,22 @@
         widget.classList.contains('open') ? closeChat() : openChat();
       });
       closeBtn.addEventListener('click', closeChat);
+    })();
+
+    /* ── MOBILE NAV ─────────────────────────── */
+    (function () {
+      var menuToggle = document.getElementById('menuToggle');
+      var navMenu = document.getElementById('navMenu');
+      menuToggle.addEventListener('click', function () {
+        menuToggle.classList.toggle('open');
+        navMenu.classList.toggle('open');
+      });
+      navMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menuToggle.classList.remove('open');
+          navMenu.classList.remove('open');
+        });
+      });
     })();
   </script>
 
